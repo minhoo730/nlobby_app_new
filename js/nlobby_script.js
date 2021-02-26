@@ -1,6 +1,6 @@
 // nlobbyApp javascript
 	$(document).ready(function(){
-		$(".cs_list ul > li").on("click", function(e){
+		$(".cs_list ul > li, .view_list ul > li").on("click", function(e){
 			$(this).toggleClass('on');
 		});
 
@@ -28,5 +28,10 @@
 					items:4
 				}
 			}
+		});
+
+		// 알림 활성화 / 비활성화 버튼
+		var check = $(".toggle_check input[type='checkbox']");
+			check.click(function(){
 		});
 	});
