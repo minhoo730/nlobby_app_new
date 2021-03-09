@@ -35,3 +35,16 @@
 			check.click(function(){
 		});
 	});
+
+// 삭제 버튼 클릭시 텍스트 제거 스크립트
+$(document).ready(function(){
+	$('.form_label input[name="keyword"]').on('input propertychange', function() {
+		var $this = $(this);
+		var visible = Boolean($this.val());
+		$this.siblings('.txt_clear').toggleClass('hidden', !visible);
+	}).trigger('propertychange');
+	$('.txt_clear').click(function() {
+		$(this).siblings('input[name="keyword"]').val('')
+			.trigger('propertychange').focus();
+	});
+});
