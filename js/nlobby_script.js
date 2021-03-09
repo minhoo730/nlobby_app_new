@@ -1,4 +1,5 @@
 // nlobbyApp javascript
+	new naver.maps.Map('nmap');
 	$(document).ready(function(){
 		$(".cs_list ul > li, .view_list ul > li").on("click", function(e){
 			$(this).toggleClass('on');

@@ -326,6 +326,8 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .mod_form .form_box{display:table-cell; vertical-align:middle;}
 
 
+/* 지도 메인 */
+.nmap{height:550px; margin:auto; width:100%;}
 
 /* 방문신청 정보작성 페이지 max:iPhone Plus */
 @media screen and (max-width:375px){
