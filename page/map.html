@@ -14,9 +14,34 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<div id="nmap" class="map_main">
-
+			<div class="top_bg">
+				<div class="top_area">
+					<div class="t_search">
+						<button class="left_btn">
+							<span class="line"></span>
+							<span class="line"></span>
+							<span class="line"></span>
+						</button>
+						<input type="text" class="place_form" placeholder="주소 / 장소검색"/>
+					</div>
+					<div class="t_alarm">
+						<button class="t_alarm_btn">알람버튼</button>
+					</div>
+				</div>
 			</div>
+			<div class="bot_bg">
+				<div class="bot_area">
+					<ul>
+						<li class="m_loaction"><a href="#">주변</a></li>
+						<li class="m_bookmark"><a href="#">즐겨찾기</a></li>
+						<li class="m_latest"><a href="#">최근</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="nmap" class="map_main"></div>
+			<script>
+				new naver.maps.Map('nmap');
+			</script>
 		</div>
 	</body>
 </html>
