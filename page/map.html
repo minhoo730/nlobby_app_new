@@ -27,7 +27,17 @@
 					<div class="t_alarm">
 						<button class="t_alarm_btn">알람버튼</button>
 					</div>
+					<!-- 알람메시지가 도착할 경우 on클래스 활성화 -->
+					<!--
+					<div class="t_alarm on">
+						<button class="t_alarm_btn">알람버튼</button>
+					</div>
+					-->
 				</div>
+			</div>
+			<div class="content_ico">
+				<p class="location_ico"><a href="#">현재위치 아이콘</a></p>
+				<p class="adm_ico"><a href="#">방문관리 아이콘</a></p>
 			</div>
 			<div class="bot_bg">
 				<div class="bot_area">
@@ -38,9 +48,57 @@
 					</ul>
 				</div>
 			</div>
+			<div class="left_modal">
+				<div class="left_area">
+					<div class="left_scroll">
+						<div class="user_info">
+							<h4 class="user_name">사용자</h4>
+							<p class="user_company">엔로비<span class="user_mb">임직원</span></p>
+							<div class="user_ep">
+								<p class="user_email">nim730@nlobby.com</p>
+								<p class="user_phone">010-1234-1234</span></p>
+							</div>
+						</div>
+						<div class="menu_list">
+							<div class="nlobby_banner">
+								<a href="#"></a>
+							</div>
+							<div class="left_menu">
+								<ul>
+									<li><a href="#">방문예약</a></li>
+									<li><a href="#">방문신청</a></li>
+									<li><a href="#">방문예약확인</a></li>
+								</ul>
+							</div>
+							<div class="user_menu">
+								<ul>
+									<li><a href="#">임직원 등록<br><span class="summary">방문예약 시스템을 이용중이신가요?</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="bot_list">
+							<div class="bot_menu">
+								<ul>
+									<li class="guide_ico"><a href="#">이용안내</a></li>
+									<li class="home_ico"><a href="#">홈페이지</a></li>
+									<li class="custom_ico"><a href="#">고객센터</a></li>
+									<li class="set_ico"><a href="#">설정</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal_bg"></div>
+			</div>
 			<div id="nmap" class="map_main"></div>
 			<script>
-				new naver.maps.Map('nmap');
+			var mapOptions = {
+				center: new naver.maps.LatLng(35.176266914354606, 129.1258162545757),
+				zoom:16,
+				disableKineticPan:false,
+				mapDataControl:false
+			};
+			var map = new naver.maps.Map('nmap', mapOptions);
 			</script>
 		</div>
 	</body>
