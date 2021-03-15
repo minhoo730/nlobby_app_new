@@ -364,8 +364,11 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 }
 
 
-.left_modal{width:100%; height:100%; position:absolute; z-index:888;}
+.left_modal{width:100%; height:100%; position:absolute; z-index:888; display:none;}
 .left_modal .left_area{background:#fff; width:260px; height:100%; position:absolute; z-index:888;box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);}
+#wrap.slide_on .left_modal{display:block; }
+
+
 .left_scroll{height: 100%; position: relative;}
 .left_area .user_info{border-bottom:1px solid #e1e1e1; padding:20px;}
 .left_area .user_info .user_name{font-size:24px; font-weight:600;}

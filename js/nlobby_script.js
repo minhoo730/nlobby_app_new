@@ -3,7 +3,6 @@
 		$(".cs_list ul > li, .view_list ul > li").on("click", function(e){
 			$(this).toggleClass('on');
 		});
-
 		$('.note').keyup(function (e){
 			var content = $(this).val();
 			$('#counter').html("<b>"+content.length+"</b> / 1000");    //글자수 실시간 카운팅
@@ -35,6 +34,14 @@
 			check.click(function(){
 		});
 	});
+
+$(document).ready(function(){
+	$("#wrap .left_modal").hide();
+	$("#wrap .left_btn").click(function(){
+		$('#wrap .left_modal').animate({width:'toggle'});
+    })
+})
+
 
 // 삭제 버튼 클릭시 텍스트 제거 스크립트
 $(document).ready(function(){
