@@ -36,15 +36,7 @@
 	});
 
 $(document).ready(function(){
-	$("#wrap .left_modal").hide();
-	$("#wrap .left_btn").click(function(){
-		$('#wrap .left_modal').animate({width:'toggle'});
-    })
-})
-
-
-// 삭제 버튼 클릭시 텍스트 제거 스크립트
-$(document).ready(function(){
+	// 삭제 버튼 클릭시 텍스트 제거 스크립트
 	$('.form_label input[name="keyword"]').on('input propertychange', function() {
 		var $this = $(this);
 		var visible = Boolean($this.val());
@@ -54,5 +46,44 @@ $(document).ready(function(){
 		$(this).siblings('input[name="keyword"]').val('')
 			.trigger('propertychange').focus();
 	});
+
+	// 좌상단 버튼 클릭시 좌측 메뉴 노출
+	$('#wrap .left_btn').on('click', function(){
+		$('.modal_bg').fadeIn(200); 
+		$('.left_area').show().animate({
+			left:0
+		});  
+	});
+	$('.modal_bg, .close_btn').on('click', function(){
+		$('.modal_bg').fadeOut(200); 
+		$('.left_area').animate({
+			left: '-' + 260 + 'px'
+		},function(){
+			$('.left_area').hide(); 
+		}); 
+	});
+	
+
+	$(".bot_bg ul li").click(function(){
+		var idx = $(this).index();
+		$(".bot_bg ul > li").removeClass("on");
+		$(".bot_bg ul > li").eq(idx).addClass("on");
+		$(".bot_list").slideUp(300);
+		$(".bot_list").eq(idx).slideDown(300);
+	});
+
+	$(".tab_con .list_close").click(function(){
+		$(".bot_list").slideUp();
+		$(".bot_bg ul li").removeClass("on");
+	});
+
+	$(".t_alarm_btn").click(function(){
+		$(".alarm_area").slideDown(300);
+	});
+
+	$(".alarm_header .back_link").click(function(){
+		$(".alarm_area").slideUp(300);
+	});
+
 });
 
