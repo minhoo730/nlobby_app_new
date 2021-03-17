@@ -332,7 +332,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .cs_mapbridge .map_group .map_marker{position:absolute;width:20px;height:20px;z-index:5}
 .cs_mapbridge .map_group .map_marker .ico{position:absolute; z-index:10}
 .cs_mapbridge .map_group .map_marker .ico:after{position:absolute;top:-5px;right:-5px;bottom:-5px;left:-5px;background-color:transparent;content:'';z-index:30;}
-.cs_mapbridge .map_group .map_marker .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_area_ico.png') no-repeat center; background-size: 30px 35px; -webkit-background-size: 30px 35px; content: ''; width:30px; height:35px; text-indent:-9999px;}
+.cs_mapbridge .map_group .map_marker .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_area_ico.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 30px 35px; content: ''; width:40px; height:45px; text-indent:-9999px;}
 .cs_mapbridge .map_marker.hp .ico{width:26px;height:36px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
 .cs_mapbridge .map_marker.hp_big .ico{width:38px;height:58px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
 .cs_mapbridge .map_marker.hp_big .shd{top:24px;left:8px;width:38px;height:34px;}
