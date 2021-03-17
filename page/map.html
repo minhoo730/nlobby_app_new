@@ -581,6 +581,11 @@
 					},
 					draggable: true
 				});
+
+				// 위치 지정 마커 클릭시 이동
+				naver.maps.Event.addListener(map, 'click', function(e) {
+					greenMarker.setPosition(e.coord);
+				});
 			</script>
 		</div>
 	</body>
