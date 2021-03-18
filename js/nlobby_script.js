@@ -108,7 +108,7 @@ $(document).ready(function(){
 	$(".nodata_com .close_btn").click(function(){
 		$(".nodata_com").slideUp(200);
 	});
-	$(".no_mark").dblclick(function(){
+	$(".no_mark").click(function(){
 		$(".nodata_com").slideDown(200);
 		$(".green_company").slideUp(200);
 		$(".gray_company").slideUp(200);

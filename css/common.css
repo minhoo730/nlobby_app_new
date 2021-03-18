@@ -407,7 +407,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .t_search .left_btn .line:nth-child(2){top:18px;}
 .t_search .left_btn .line:last-child{bottom:11px;}
 
-.bot_bg{position:absolute;width:100%; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);bottom:0;z-index:555;background:#fff;}
+.bot_bg{position:fixed;width:100%; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);bottom:0;z-index:555;background:#fff;}
 .bot_bg ul:after{display:block; content:''; clear:both;}
 .bot_bg ul li{float:left;width:33.33%;height: 70px;text-align:center;}
 .bot_bg ul li a{display:block;height:100%;padding-top: 40px;color:#a9a9a9;font-weight:400;font-size:14px;}
