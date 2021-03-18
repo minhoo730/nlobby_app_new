@@ -50,7 +50,7 @@
 				<div class="bot_list list_location" id="tab1">
 					<h4 class="bot_title">주변<span class="bot_sub">현재 가까운 곳에 있습니다.</span></h4>
 					<button class="list_close">X</button>
-					<ul>
+					<ul class="scroll">
 						<li>
 							<a href="#">
 								GS건설 본사<br>
@@ -187,7 +187,7 @@
 				<div class="bot_list list_bookmark" id="tab2">
 					<h4 class="bot_title">즐겨찾기</h4>
 					<button class="list_close">X</button>
-					<ul>
+					<ul class="scroll">
 						<li>
 							<a href="#">
 								GS건설 본사<br>
@@ -324,7 +324,7 @@
 				<div class="bot_list list_latest" id="tab3">
 					<h4 class="bot_title">최근</h4>
 					<button class="list_close">X</button>
-					<ul>
+					<ul class="scroll">
 						<li>
 							<a href="#">
 								GS건설 본사<br>
@@ -525,16 +525,19 @@
 							<a href="#"></a>
 						</div>
 						<div class="left_menu">
-							<ul>
-								<li><a href="#">방문예약</a></li>
-								<li><a href="#">방문신청</a></li>
-								<li><a href="#">방문예약확인</a></li>
-							</ul>
-						</div>
-						<div class="user_menu">
-							<ul>
-								<li><a href="#">임직원 등록<br><span class="summary">방문예약 시스템을 이용중이신가요?</span></a></li>
-							</ul>
+							<div class="common_menu">
+								<ul>
+									<li><a href="#">방문예약</a></li>
+									<li><a href="#">방문신청</a></li>
+									<li><a href="#">방문예약확인</a></li>
+								</ul>
+							</div>
+							<div class="user_menu">
+								<ul>
+									<li><a href="#">임직원 등록<br><span class="summary">방문예약 시스템을 이용중이신가요?</span></a></li>
+									<li><a href="#">임직원 등록<br><span class="summary">방문예약 시스템을 이용중이신가요?</span></a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="left_bot">
@@ -550,8 +553,165 @@
 				</div>
 			</div>
 			<div class="modal_bg"></div>
-			<div id="map" class="map_main">
+			<div id="map" class="map_main"></div>
+			<div class="green_company company_pop">
+				<button class="close_btn">X</button>
+				<ul class="map_company_area scroll">
+					<li>
+						<div class="pop_list_area">
+							<div class="list_img_area">
+								<div class="list_img">
+									<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
+								</div>
+							</div>
+							<div class="place_list">
+								<div class="list_title">
+									<h4 class="place_name">엔로비 부산본사</h4>
+									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+									<div class="pop_btn">
+										<div class="btn_ico">
+											<button class="bookmark_ico">북마크 ICO</button>
+											<button class="share_ico">공유 ICO</button>
+										</div>
+										<div class="txt_btn">
+											<p class="reserve_btn"><a href="#">방문신청</a></p>
+											<p class="modify_btn"><a href="#">수정</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="pop_list_area">
+							<div class="list_img_area">
+								<div class="list_img">
+									<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
+								</div>
+							</div>
+							<div class="place_list">
+								<div class="list_title">
+									<h4 class="place_name">엔로비 부산본사</h4>
+									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+									<div class="pop_btn">
+										<div class="btn_ico">
+											<button class="bookmark_ico">북마크 ICO</button>
+											<button class="share_ico">공유 ICO</button>
+										</div>
+										<div class="txt_btn">
+											<p class="reserve_btn"><a href="#">방문신청</a></p>
+											<p class="modify_btn"><a href="#">수정</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="pop_list_area">
+							<div class="list_img_area">
+								<div class="list_img">
+									<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
+								</div>
+							</div>
+							<div class="place_list">
+								<div class="list_title">
+									<h4 class="place_name">엔로비 부산본사</h4>
+									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+									<div class="pop_btn">
+										<div class="btn_ico">
+											<button class="bookmark_ico">북마크 ICO</button>
+											<button class="share_ico">공유 ICO</button>
+										</div>
+										<div class="txt_btn">
+											<p class="reserve_btn"><a href="#">방문신청</a></p>
+											<p class="modify_btn"><a href="#">수정</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</div>
+			<div class="gray_company company_pop">
+				<button class="close_btn">X</button>
+				<ul class="map_company_area scroll">
+					<li>
+						<div class="pop_list_area">
+							<div class="place_list">
+								<div class="list_title">
+									<h4 class="place_name">엔로비 부산본사</h4>
+									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+									<div class="pop_btn">
+										<div class="btn_ico">
+											<button class="bookmark_ico">북마크 ICO</button>
+											<button class="share_ico">공유 ICO</button>
+										</div>
+										<div class="txt_btn">
+											<p class="reserve_btn"><a href="#">방문신청</a></p>
+											<p class="modify_btn"><a href="#">수정</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="pop_list_area">
+							<div class="place_list">
+								<div class="list_title">
+									<h4 class="place_name">엔로비 부산본사</h4>
+									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+									<div class="pop_btn">
+										<div class="btn_ico">
+											<button class="bookmark_ico">북마크 ICO</button>
+											<button class="share_ico">공유 ICO</button>
+										</div>
+										<div class="txt_btn">
+											<p class="reserve_btn"><a href="#">방문신청</a></p>
+											<p class="modify_btn"><a href="#">수정</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="pop_list_area">
+							<div class="place_list">
+								<div class="list_title">
+									<h4 class="place_name">엔로비 부산본사</h4>
+									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+									<div class="pop_btn">
+										<div class="btn_ico">
+											<button class="bookmark_ico">북마크 ICO</button>
+											<button class="share_ico">공유 ICO</button>
+										</div>
+										<div class="txt_btn">
+											<p class="reserve_btn"><a href="#">방문신청</a></p>
+											<p class="modify_btn"><a href="#">수정</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="nodata_com company_pop">
+				<button class="close_btn">X</button>
+				<div class="list_title">
+					<h4 class="place_name">엔로비 부산본사</h4>
+					<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+					<div class="place_plus">
+						<p class="place_add_btn"><a href="#">방문장소 만들기</a></p>
+					</div>
+				</div>
+			</div>
+
+
 			<script>
 				var HOME_PATH = window.HOME_PATH || '.';
 				var map = new naver.maps.Map('map', {
@@ -561,31 +721,115 @@
 					mapDataControl:false,
 					clickable:true
 				});
-				var greenMarker = new naver.maps.Marker({
+				var redMarker = new naver.maps.Marker({
 					position: new naver.maps.LatLng(35.176266914354606, 129.1258162545757),
 					map: map,
-					title: 'Green',
+					title: 'Red',
 					icon: {
 						content: [
-									'<div class="cs_mapbridge">',
-										'<div class="map_group _map_group crs">',
-											'<div class="map_marker _marker"> ',
+									'<div class="mapbridge no_mark">',
+										'<div class="map_group _map_group">',
+											'<div class="map_marker _marker noa"> ',
 												'<span class="ico _icon"></span>',
 												'<span class="shd">마커</span>',
 											'</div>',
 										'</div>',
 									'</div>'
 								].join(''),
-						size: new naver.maps.Size(38, 58),
-						anchor: new naver.maps.Point(19, 58),
+						size: new naver.maps.Size(40, 45),
+						anchor: new naver.maps.Point(19, 40),
 					},
 					draggable: true
 				});
-
 				// 위치 지정 마커 클릭시 이동
 				naver.maps.Event.addListener(map, 'click', function(e) {
-					greenMarker.setPosition(e.coord);
+					redMarker.setPosition(e.coord);
 				});
+
+				var greenMarker = new naver.maps.Marker({
+					position: new naver.maps.LatLng(35.174878887415396, 129.12445041545166),
+					map: map,
+					title: 'Green',
+					icon: {
+						content: [
+									'<div class="mapbridge green_mark">',
+										'<div class="map_group _map_group">',
+											'<div class="map_marker _marker gen_point"> ',
+												'<span class="ico _icon"></span>',
+												'<span class="shd">+3</span>',
+											'</div>',
+										'</div>',
+									'</div>'
+								].join(''),
+						size: new naver.maps.Size(40, 45),
+						anchor: new naver.maps.Point(19, 40),
+					},
+					draggable: false
+				});
+
+				var grayMarker = new naver.maps.Marker({
+					position: new naver.maps.LatLng(35.174573619601816, 129.12826814012158),
+					map: map,
+					title: 'Gray',
+					icon: {
+						content: [
+									'<div class="mapbridge gray_mark">',
+										'<div class="map_group _map_group">',
+											'<div class="map_marker _marker gray_point"> ',
+												'<span class="ico _icon"></span>',
+												'<span class="shd">+3</span>',
+											'</div>',
+										'</div>',
+									'</div>'
+								].join(''),
+						size: new naver.maps.Size(40, 45),
+						anchor: new naver.maps.Point(19, 40),
+					},
+					draggable: false
+				});
+
+				var greenNlobby = new naver.maps.Marker({
+					position: new naver.maps.LatLng(35.17292381160535, 129.12771024920434),
+					map: map,
+					title: 'Gray',
+					icon: {
+						content: [
+									'<div class="mapbridge green_nlobby">',
+										'<div class="map_group _map_group">',
+											'<div class="map_marker _marker gen_nlobby"> ',
+												'<span class="ico _icon"></span>',
+												'<span class="shd">마커</span>',
+											'</div>',
+										'</div>',
+									'</div>'
+								].join(''),
+						size: new naver.maps.Size(40, 45),
+						anchor: new naver.maps.Point(19, 40),
+					},
+					draggable: false
+				});
+
+				var grayNlobby = new naver.maps.Marker({
+					position: new naver.maps.LatLng(35.177650669265795, 129.12439503884184),
+					map: map,
+					title: 'Gray',
+					icon: {
+						content: [
+									'<div class="mapbridge gray_nlobby">',
+										'<div class="map_group _map_group">',
+											'<div class="map_marker _marker gray_nlobby"> ',
+												'<span class="ico _icon"></span>',
+												'<span class="shd">+3</span>',
+											'</div>',
+										'</div>',
+									'</div>'
+								].join(''),
+						size: new naver.maps.Size(40, 45),
+						anchor: new naver.maps.Point(19, 40),
+					},
+					draggable: false
+				});
+
 			</script>
 		</div>
 	</body>

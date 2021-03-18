@@ -325,24 +325,72 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .mod_form{display:table; max-width:768px; margin:0 auto; width:100%; padding:20px;}
 .mod_form .form_box{display:table-cell; vertical-align:middle;}
 
-
 /* 지도 메인 */
 #map{height:100%; margin:auto; width:100%; position:relative;}
-.cs_mapbridge .map_group .map_marker[class*=_big]{z-index:6}
-.cs_mapbridge .map_group .map_marker{position:absolute;width:20px;height:20px;z-index:5}
-.cs_mapbridge .map_group .map_marker .ico{position:absolute; z-index:10}
-.cs_mapbridge .map_group .map_marker .ico:after{position:absolute;top:-5px;right:-5px;bottom:-5px;left:-5px;background-color:transparent;content:'';z-index:30;}
-.cs_mapbridge .map_group .map_marker .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_area_ico.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-indent:-9999px;}
-.cs_mapbridge .map_marker.hp .ico{width:26px;height:36px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-.cs_mapbridge .map_marker.hp_big .ico{width:38px;height:58px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-.cs_mapbridge .map_marker.hp_big .shd{top:24px;left:8px;width:38px;height:34px;}
-.cs_mapbridge .map_marker.tvhp .ico{width:26px;height:36px;background-position:-210px 0;background-size:400px 450px;-webkit-background-size:400px 450px;transform-origin:12px 100%;-webkit-transform-origin:12px 100%}
-.cs_mapbridge .map_marker.tvhp_big .ico{width:38px;height:58px;transform-origin:19px 54px;-webkit-transform-origin:19px 54px}
-.cs_mapbridge .map_marker.tvhp_big .shd{top:24px;left:8px;width:38px;height:34px;}
-.cs_mapbridge .crs .map_marker[class*=_big] .shd{top:24px;left:8px;width:38px;height:38px;}
-.cs_mapbridge .crs .map_marker .ico{width:25px;height:36px}
-.cs_mapbridge .crs .map_marker[class*=_big] .ico{width:38px;height:58px}
+.mapbridge .map_group .map_marker[class*=_big]{z-index:6}
+.mapbridge .map_group .map_marker{position:absolute;width:20px;height:20px;z-index:5}
+.mapbridge .map_group .map_marker .ico{position:absolute; z-index:10}
+.mapbridge .map_group .map_marker .ico:after{position:absolute;top:-5px;right:-5px;bottom:-5px;left:-5px;background-color:transparent;content:'';z-index:30;}
 
+/* 엔로비 고객사 정보 */
+.company_pop{background:#fff; padding:20px; position:absolute; bottom:0; z-index:555; box-shadow: 0 0 5px 0 rgb(0 0 0 / 0.15); width:100%; border-top-left-radius:15px; border-top-right-radius:15px; display:none; padding-top:60px;}
+.company_pop .close_btn{top:20px;}
+.company_pop ul{max-height:330px; overflow-y:auto;}
+.company_pop ul li{border-bottom:1px solid #e9e9e9; padding:20px 0;}
+.company_pop ul li:last-child{border-bottom:none;}
+.company_pop ul li .pop_list_area{position:relative;}
+.company_pop ul li .pop_list_area:after{display:block; content:''; clear:both;}
+.company_pop ul li .pop_list_area .list_img_area{float:left;width:85px;height:85px;border:1px solid #e1e1e1;padding:5px;}
+.company_pop ul li .pop_list_area .list_img{display:table; width:100%; height:100%; margin:auto;}
+.company_pop ul li .pop_list_area .list_img p{display:table-cell; vertical-align:middle;}
+.company_pop ul li .pop_list_area .list_img p img{width:100%;}
+.company_pop ul li .pop_list_area .place_list{position:relative;}
+.company_pop .list_title{overflow:hidden; padding-left:15px; top:0; width:calc(100% - 85px);}
+.company_pop .place_name{font-size:20px; font-weight:600;}
+.company_pop .place_address{font-size:14px;color:#858585;font-weight:300; margin-top: 5px;}
+.company_pop ul li .pop_btn{margin-top: 20px;}
+.company_pop ul li .pop_btn:after{display:block; content:''; clear:both;}
+.company_pop ul li .pop_btn .btn_ico{float:left;}
+.company_pop ul li .pop_btn .btn_ico button{display:inline-block; border:none; text-indent:-9999px; margin-right:5px; width:30px; height:30px; }
+.company_pop ul li .pop_btn .btn_ico button.bookmark_ico{background-size: 23px !important;background: url('../img/drawable-xxxhdpi/bookmark_off.png')no-repeat center 3px;}
+.company_pop ul li .pop_btn .btn_ico button.share_ico{background-size: 22px !important;background: url('../img/drawable-xxxhdpi/share_ico.png')no-repeat center 3px;margin-right:0;}
+.company_pop ul li .txt_btn{position:absolute; right:0; bottom:0;}
+.company_pop ul li .txt_btn p{float:left; margin-left:5px;}
+.company_pop ul li .txt_btn p a{font-size:12px; padding:5px 10px; display:block;}
+.company_pop ul li .txt_btn p.reserve_btn a{border:1px solid #849c23; color:#849c23;}
+.company_pop ul li .txt_btn p.modify_btn a{border:1px solid #858585; color:#858585;}
+.gray_company .list_title{width:100%; padding-left:0;}
+
+.nodata_com .list_title{width:100%; padding-left:0;}
+.nodata_com .place_plus{text-align:center; display:block; margin-top:10px;}
+.nodata_com .place_plus a{border:1px solid #849c23; color:#849c23; display:block; font-size:14px; padding:5px 0;}
+
+.scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+/* 이동 마커 */
+.mapbridge .map_group .noa .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_area_ico.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-indent:-9999px;}
+.mapbridge .noa .map_marker[class*=_big] .shd{top:24px;left:8px;width:38px;height:38px;}
+.mapbridge .noa .map_marker .ico{width:25px;height:36px}
+.mapbridge .noa .map_marker[class*=_big] .ico{width:38px;height:58px}
+
+/* 초록색 다수 고정마커 */
+.mapbridge .map_group .gen_point .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/balloon.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-align:center; color:#fff; padding-top:7px;}
+
+/* 그레이 다수 고정마커 */
+.mapbridge .map_group .gray_point .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_balloon.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-align:center; color:#fff; padding-top:7px;}
+
+/* 초록색 엔로비 고정마커 */
+.mapbridge .map_group .gen_nlobby .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/balloon_logo.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-align:center; color:#fff; padding-top:7px; text-indent:-9999px;}
+
+/* 그레이 엔로비 고정마커 */
+.mapbridge .map_group .gray_nlobby .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_balloon_logo.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-align:center; color:#fff; padding-top:7px; text-indent:-9999px;}
 
 
 .top_bg{width:100%; position:absolute; z-index:111; top:20px; padding:0 20px; padding-right:90px;}
@@ -423,7 +471,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 
 
 .left_scroll{height: 100%; position: relative;}
-.left_scroll .close_btn{position:absolute; right:20px; top:25px; border:none; width:30px; height:30px; background:url('../img/drawable-xxxhdpi/clear_btn.png')no-repeat center; background-size:18px; text-indent:-9999px;}
+.close_btn{position:absolute; right:20px; top:25px; border:none; width:30px; height:30px; background:url('../img/drawable-xxxhdpi/clear_btn.png')no-repeat center; background-size:18px; text-indent:-9999px;}
 .left_area .user_info{border-bottom:1px solid #e1e1e1; padding:20px; position:relative;}
 .left_area .user_info .user_name{font-size:24px; font-weight:600;}
 .left_area .user_info:after{display:block; content:''; clear:both;}
@@ -433,11 +481,12 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .left_area .user_info .user_ep p{color:#a9a9a9; font-weight:300;}
 .left_area .user_info .user_ep .user_phone{padding-top:5px;}
 .menu_list{position:relative;/* padding-bottom: 75px; */}
-.left_area .left_menu{border-bottom:1px solid #e1e1e1; padding:20px;}
-.left_area .left_menu ul li{margin:10px 0;}
-.left_area .left_menu ul li:first-child{margin-top:0;}
-.left_area .left_menu ul li:last-child{margin-bottom:0;}
-.left_area .left_menu ul li a{display:block;}
+.left_area .left_menu{max-height:275px; overflow-y:scroll;}
+.left_area .common_menu{border-bottom:1px solid #e1e1e1; padding:20px;}
+.left_area .common_menu ul li{margin:10px 0;}
+.left_area .common_menu ul li:first-child{margin-top:0;}
+.left_area .common_menu ul li:last-child{margin-bottom:0;}
+.left_area .common_menu ul li a{display:block;}
 .left_area .user_menu{padding:20px;}
 .left_area .user_menu ul li{margin:10px 0;}
 .left_area .user_menu ul li:first-child{margin-top:0;}
@@ -455,6 +504,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .left_bot .left_bot_menu ul li.custom_ico a{background: url('../img/drawable-xxxhdpi/service_center.png')center 9px no-repeat;background-size:20px;}
 .left_bot .left_bot_menu ul li.set_ico a{background: url('../img/drawable-xxxhdpi/mypage_ico.png')51% 9px no-repeat;background-size: 20px;}
 
+
 /* 방문신청 정보작성 페이지 max:iPhone Plus */
 
 @media screen and (max-width:375px){
@@ -466,6 +516,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 	.company_find .gray_txt{padding:0;}
 	.company_find .gray_txt:before{background:none;}
 
+
 	/* 방문예약 확인 아이콘 */
 	.reserve_list ul li .reserve_info h4.reserve_name{font-size:14px;}
 	.reserve_list ul li .reserve_info p.reserve_address{font-size:14px;}
@@ -475,33 +526,9 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 
 }
 
-/* 아이폰5, 갤럭시폴더 세로모드 */
-@media screen and (max-width:320px) and (orientation: portrait){
-	.sblack_txt br{display:block;}
-	.bot_list ul{height:57vh;}
-}
 
+@media screen and (max-width:320px){
+	/* .company_pop ul li .pop_list_area .place_list{position:static; margin-left:100px;} */
+	.left_area .left_menu{max-height:210px; overflow-y:scroll;}
 
-/* 너비 850px, 가로모드의 태블릿 */
-@media screen and (max-width:878px) and (orientation: landscape){
-	.left_scroll{overflow-y: auto;}
-	.left_bot{position:relative;}
-	.bot_list{position:absolute; height:78vh; top:22vh;}
-	.bot_list ul{height:35vh;}
-	.bot_list ul li a{width:75%;}
-}
-
-@media screen and (max-width:568px) and (orientation: landscape){
-	.bot_list{height:70vh; top:25vh;}
-	.bot_list ul {height: 25vh;}
-}
-
-@media screen and (min-width:879px) and (max-width:1040px){
-	.bot_list ul{height:43vh;}
-	.bot_list ul li a{width:90%;}
-}
-
-@media screen and (min-width:1041px){
-	.bot_list{height:70vh;}
-	.bot_list ul{height:53vh;}
 }
