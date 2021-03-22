@@ -14,6 +14,50 @@
 	</head>
 	<body>
 		<div id="wrap">
+			<!-- 플로팅 검색 영역 -->
+			<div id="flow_search" class="flow_search scroll">
+				<div class="search_area">
+					<div class="f_search">
+						<button class="back_btn" id="back_btn"> < </button>
+						<button class="txt_clear btn">지우기</button>
+						<input type="text" name="keyword" class="place_form" placeholder="주소 / 장소검색"/>
+					</div>
+					<ul class="search_input">
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+						<li><a href="#">엔로비</a></li>
+					</ul>
+				</div>
+			</div>
 			<div class="top_bg">
 				<div class="top_area">
 					<div class="t_search">
@@ -524,7 +568,7 @@
 						<div class="nlobby_banner">
 							<a href="#"></a>
 						</div>
-						<div class="left_menu">
+						<div class="left_menu scroll">
 							<div class="common_menu">
 								<ul>
 									<li><a href="#">방문예약</a></li>
@@ -554,6 +598,8 @@
 			</div>
 			<div class="modal_bg"></div>
 			<div id="map" class="map_main"></div>
+			<!-- 각 위치별 팝업 영역 -->
+			<!-- 엔로비 고객사 팝업 -->
 			<div class="green_company company_pop">
 				<button class="close_btn">X</button>
 				<ul class="map_company_area scroll">
@@ -634,6 +680,8 @@
 					</li>
 				</ul>
 			</div>
+
+			<!-- 엔로비 비 고객사 팝업 -->
 			<div class="gray_company company_pop">
 				<button class="close_btn">X</button>
 				<ul class="map_company_area scroll">
@@ -700,6 +748,7 @@
 				</ul>
 			</div>
 
+			<!-- 지역 정보가 없는 팝업 -->
 			<div class="nodata_com company_pop">
 				<button class="close_btn">X</button>
 				<div class="list_title">
@@ -710,8 +759,6 @@
 					</div>
 				</div>
 			</div>
-
-
 			<script>
 				var HOME_PATH = window.HOME_PATH || '.';
 				var map = new naver.maps.Map('map', {
@@ -724,7 +771,6 @@
 				var redMarker = new naver.maps.Marker({
 					position: new naver.maps.LatLng(35.176266914354606, 129.1258162545757),
 					map: map,
-					title: 'Red',
 					icon: {
 						content: [
 									'<div class="mapbridge no_mark">',
@@ -749,7 +795,6 @@
 				var greenMarker = new naver.maps.Marker({
 					position: new naver.maps.LatLng(35.174878887415396, 129.12445041545166),
 					map: map,
-					title: 'Green',
 					icon: {
 						content: [
 									'<div class="mapbridge green_mark">',
@@ -770,12 +815,11 @@
 				var grayMarker = new naver.maps.Marker({
 					position: new naver.maps.LatLng(35.174573619601816, 129.12826814012158),
 					map: map,
-					title: 'Gray',
 					icon: {
 						content: [
 									'<div class="mapbridge gray_mark">',
 										'<div class="map_group _map_group">',
-											'<div class="map_marker _marker gray_point"> ',
+											'<div class="map_marker _marker"> ',
 												'<span class="ico _icon"></span>',
 												'<span class="shd">+3</span>',
 											'</div>',
@@ -791,12 +835,11 @@
 				var greenNlobby = new naver.maps.Marker({
 					position: new naver.maps.LatLng(35.17292381160535, 129.12771024920434),
 					map: map,
-					title: 'Gray',
 					icon: {
 						content: [
 									'<div class="mapbridge green_nlobby">',
 										'<div class="map_group _map_group">',
-											'<div class="map_marker _marker gen_nlobby"> ',
+											'<div class="map_marker _marker"> ',
 												'<span class="ico _icon"></span>',
 												'<span class="shd">마커</span>',
 											'</div>',
@@ -812,12 +855,11 @@
 				var grayNlobby = new naver.maps.Marker({
 					position: new naver.maps.LatLng(35.177650669265795, 129.12439503884184),
 					map: map,
-					title: 'Gray',
 					icon: {
 						content: [
 									'<div class="mapbridge gray_nlobby">',
 										'<div class="map_group _map_group">',
-											'<div class="map_marker _marker gray_nlobby"> ',
+											'<div class="map_marker _marker"> ',
 												'<span class="ico _icon"></span>',
 												'<span class="shd">+3</span>',
 											'</div>',

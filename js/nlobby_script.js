@@ -36,6 +36,10 @@
 	});
 
 $(document).ready(function(){
+	$("#back_btn").click(function(){
+		$("#flow_search").css("display","none");
+	});
+
 	// 삭제 버튼 클릭시 텍스트 제거 스크립트
 	$('.form_label input[name="keyword"]').on('input propertychange', function() {
 		var $this = $(this);
@@ -64,13 +68,21 @@ $(document).ready(function(){
 	});
 	
 
-	$(".bot_bg ul li").click(function(){
+	$(".bot_bg ul > li").click(function(){
+		// 탭메뉴 열려있는 상태에서 자기 버튼을 클릭 했을 때 종료
+		if($(this).hasClass("on") == true){
+			$(this).removeClass("on");
+			$(".bot_list").slideUp(300);
+		} else{
+		// 탭메뉴 클릭시 노출
 		var idx = $(this).index();
 		$(".bot_bg ul > li").removeClass("on");
 		$(".bot_bg ul > li").eq(idx).addClass("on");
 		$(".bot_list").slideUp(300);
 		$(".bot_list").eq(idx).slideDown(300);
+		}
 	});
+
 
 	$(".tab_con .list_close").click(function(){
 		$(".bot_list").slideUp();
@@ -85,35 +97,86 @@ $(document).ready(function(){
 		$(".alarm_area").slideUp(300);
 	});
 
-
-	$(".green_company .close_btn").click(function(){
-		$(".green_company").slideUp(200);
-	});
-	$(".green_nlobby").click(function(){
+	$(".green_mark").click(function(){
+		$(".green_mark, .green_company").addClass("on");
+		$(".gray_mark, .gray_company").removeClass("on");
+		$(".gray_nlobby, .gray_company").removeClass("on");
+		$(".green_nlobby, .green_company").removeClass("on");
 		$(".green_company").slideDown(200);
 		$(".gray_company").slideUp(200);
 		$(".nodata_com").slideUp(200);
+		$(".green_company ul li").css("display","block");
+		$(".green_company ul li:first-child").css("display","block");
+	});
+
+	$(".green_company .close_btn").click(function(){
+		$(".green_mark, .green_company").removeClass("on");
+		$(".green_company").slideUp(200);
 	});
 
 
-	$(".gray_company .close_btn").click(function(){
-		$(".gray_company").slideUp(200);
-	});
-	$(".gray_nlobby").click(function(){
+	$(".gray_mark").click(function(){
+		$(".gray_mark, .gray_company").addClass("on");
+		$(".gray_nlobby, .gray_company").removeClass("on");
+		$(".green_mark, .green_company").removeClass("on");
+		$(".green_nlobby, .green_company").removeClass("on");
 		$(".gray_company").slideDown(200);
 		$(".green_company").slideUp(200);
 		$(".nodata_com").slideUp(200);
+		$(".gray_company ul li").css("display","block");
+		$(".gray_company ul li:first-child").css("display","block");
+
+	});
+	$(".gray_company .close_btn").click(function(){
+		$(".gray_mark, .gray_company").removeClass("on");
+		$(".gray_company").slideUp(200);
 	});
 
-	$(".nodata_com .close_btn").click(function(){
-		$(".nodata_com").slideUp(200);
-	});
 	$(".no_mark").click(function(){
+		$(".mapbridge").removeClass("on");
 		$(".nodata_com").slideDown(200);
 		$(".green_company").slideUp(200);
 		$(".gray_company").slideUp(200);
 	});
+	$(".nodata_com .close_btn").click(function(){
+		$(".nodata_com").slideUp(200);
+	});
 
+	$(".green_nlobby").click(function(){
+		$(".green_nlobby, .green_company").addClass("on");
+		$(".gray_nlobby, .gray_company").removeClass("on");
+		$(".gray_mark, .gray_company").removeClass("on");
+		$(".gray_nlobby, .gray_company").removeClass("on");
+		$(".green_company ul li").css("display","none");
+		$(".green_company ul li:first-child").css("display","block");
+		$(".green_company").slideDown(200);
+		$(".nodata_com").slideUp(200);
+		$(".gray_company").slideUp(200);
+	})
+	$(".green_company .close_btn").click(function(){
+		$(".green_nlobby, .green_company").removeClass("on");
+		$(".green_company").slideUp(200);
+	});
 
+	$(".gray_nlobby").click(function(){
+		$(".gray_nlobby, .gray_company").addClass("on");
+		$(".gray_mark, .gray_company").removeClass("on");
+		$(".green_mark, .green_company").removeClass("on");
+		$(".green_nlobby, .green_company").removeClass("on");
+		$(".gray_company ul li").css("display","none");
+		$(".gray_company ul li:first-child").css("display","block");
+		$(".gray_company").slideDown(200);
+		$(".nodata_com").slideUp(200);
+		$(".green_company").slideUp(200);
+	})
+	$(".gray_company .close_btn").click(function(){
+		$(".gray_nlobby, .gray_company").removeClass("on");
+		$(".gray_company").slideUp(200);
+	});
+
+	$(".top_bg .place_form").on('focus',function(){
+		$(".flow_search").css("display","block");
+		$(".flow_search .place_form").focus();
+	})
 });
 
