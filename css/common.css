@@ -389,6 +389,8 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .mapbridge .map_group .map_marker .ico{position:absolute; z-index:10}
 .mapbridge .map_group .map_marker .ico:after{position:absolute;top:-5px;right:-5px;bottom:-5px;left:-5px;background-color:transparent;content:'';z-index:30;}
 
+.mylocation{background:#849c23; border:2px solid #fff; width:50px; height:50px; border-radius:50px;}
+
 /* 이동 마커 */
 .no_mark .map_group .map_marker .shd{position: absolute; top: 0; left: 0; background: url('../img/drawable-xxxhdpi/no_area_ico.png') no-repeat center; background-size: 40px 45px; -webkit-background-size: 40px 45px; content: ''; width:40px; height:45px; text-indent:-9999px;}
 .no_mark .map_marker[class*=_big] .shd{top:24px;left:8px;width:38px;height:38px;}

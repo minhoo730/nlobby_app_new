@@ -66,7 +66,7 @@ $(document).ready(function(){
 			$('.left_area').hide(); 
 		}); 
 	});
-	
+
 
 	$(".bot_bg ul > li").click(function(){
 		// 탭메뉴 열려있는 상태에서 자기 버튼을 클릭 했을 때 종료
