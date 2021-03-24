@@ -417,7 +417,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 
 /* 현재위치 포인트 */
 .mypoint{width:50px;padding: 15px 0;height:50px;background:rgba(132,156,35,0.3);border-radius:50px;text-align:center;}
-.point_area{width:20px;height:20px;margin: auto;background:#849c23;text-indent:-9999px;border-radius:50px;border:3px solid #fff;box-shadow:0 0 5px 0 rgb(0 0 0 / 0.15);}
+.point_area{width:15px;height:15px;margin: auto;background:#849c23;text-indent:-9999px;border-radius:50px;border:3px solid #fff;box-shadow:0 0 5px 0 rgb(0 0 0 / 0.15);}
 
 
 .top_bg{width:100%;position:absolute;z-index:111;top: 10px;padding: 0 20px;padding-right:90px;}
