@@ -40,6 +40,7 @@ $(document).ready(function(){
 		$("#flow_search").css("display","none");
 	});
 
+
 	// 삭제 버튼 클릭시 텍스트 제거 스크립트
 	$('.form_label input[name="keyword"]').on('input propertychange', function() {
 		var $this = $(this);
