@@ -772,17 +772,32 @@
 
 				var infowindow = new naver.maps.InfoWindow();
 				function onSuccessGeolocation(position) {
-					var location = new naver.maps.LatLng(position.coords.latitude,
-														 position.coords.longitude);
-
+					var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);
 					map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
 					map.setZoom(16); // 지도의 줌 레벨을 변경합니다.
 
 					//infowindow.setContent('<div style="padding:20px;">' + 'geolocation.getCurrentPosition() 위치' + '</div>');
-					infowindow.setContent('<div class="mylocation"style="padding:20px;">' + '</div>');
+					// infowindow.setContent('<div class="mylocation"style="padding:20px;">' + '</div>');
 
-					infowindow.open(map, location);
-					console.log('Coordinates: ' + location.toString());
+					// infowindow.open(map, location);
+					// console.log('Coordinates: ' + location.toString());
+
+					var myLocation = new naver.maps.Marker({
+						position:location,
+						map: map,
+						icon: {
+							content: [
+										'<div class="mypoint">',
+											'<p class="point_area">',
+											'현재위치',
+											'</p>',
+										'</div>'
+									].join(''),
+							size: new naver.maps.Size(40, 45),
+							anchor: new naver.maps.Point(19, 40),
+						},
+						draggable: false
+					});
 				}
 
 				function onErrorGeolocation() {
