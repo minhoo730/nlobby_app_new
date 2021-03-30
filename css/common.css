@@ -553,7 +553,9 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .left_bot .left_bot_menu ul li.set_ico a{background: url('../img/drawable-xxxhdpi/mypage_ico.png')51% 9px no-repeat;background-size: 20px;}
 
 
-
+@media screen and (min-width:1024px){
+	.bot_list ul{height:44vh;}
+}
 /* 방문신청 정보작성 페이지 max:iPhone Plus */
 
 @media screen and (max-width:375px){
