@@ -370,7 +370,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .company_pop .place_address{font-size:14px;color:#858585;font-weight:300; margin-top: 5px;}
 .company_pop ul li .pop_btn{margin-top: 20px;}
 .company_pop ul li .pop_btn:after{display:block; content:''; clear:both;}
-.company_pop ul li .pop_btn .btn_ico{float:left;}
+.company_pop ul li .pop_btn .btn_ico{float:left;width: 70px;}
 .company_pop ul li .pop_btn .btn_ico button{display:inline-block; border:none; text-indent:-9999px; margin-right:5px; width:30px; height:30px; }
 .company_pop ul li .pop_btn .btn_ico button.bookmark_ico{background-size: 23px !important;background: url('../img/drawable-xxxhdpi/bookmark_off.png')no-repeat center 3px;}
 .company_pop ul li .pop_btn .btn_ico button.share_ico{background-size: 22px !important;background: url('../img/drawable-xxxhdpi/share_ico.png')no-repeat center 3px;margin-right:0;}
@@ -555,10 +555,6 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 
 
 /* 방문신청 정보작성 페이지 max:iPhone Plus */
-@media screen and (min-width:1024px){
-.bot_list ul{height:55vh;}
-}
-
 
 @media screen and (max-width:375px){
 	.id_find .green{float:none; display:inline-block; margin-top:5px;}
