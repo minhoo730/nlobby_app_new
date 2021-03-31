@@ -38,7 +38,7 @@ input::-webkit-search-results-decoration{
 #ui-id-1{z-index:9999;top: 57px !important;position:fixed !important;}
 #ui-id-1 .search_list{cursor:pointer;padding: 15px 0 15px 60px;}
 #ui-id-1 .search_list:focus, #ui-id-1 .search_list:hover{background:#f1f1f1;}
-
+.ui-helper-hidden-accessible{display:none;}
 .scroll {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -64,12 +64,13 @@ h2.header_line{font-size:18px; margin-bottom:10px;}
 .error_m{font-size:12px; color:#ff0000; margin-top:5px; display:none;}
 .red{color:#ff0000;}
 
-button.btn{width:100%; padding:10px; background:#d9d9d9; color:#fff; text-align:center; font-size:16px; display:block; border:none; }
-button.green_line{background:#fff; border:1px solid #849c23; color:#849c23;}
-button.black_line{background:#fff; border:1px solid #333; color:#333; font-weight:500;}
-button.green_bg{background:#849c23; color:#fff;}
+.btn{width:100%; padding:10px; background:#d9d9d9; color:#fff; text-align:center; font-size:16px; display:block; border:none;}
+.green_line{background:#fff; border:1px solid #849c23; color:#849c23;}
+.black_line{background:#fff; border:1px solid #333; color:#333; font-weight:500;}
+.green_bg{background:#849c23; color:#fff;}
 #footer_btn{position:fixed; bottom:0; width:100%; left:0;}
-button.completed_btn{background:#849c23; color:#fff; display:none;}
+p.complet_btn .btn{cursor:unset; display:none;}
+p.completed_btn .btn{background:#849c23; color:#fff;}
 
 /* 폼 공통 */
 .apply_form{padding-top:25px; margin-bottom:30px;}
@@ -444,7 +445,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .top_bg{width:100%;position:absolute;z-index:111;top: 6px;padding: 0 10px;padding-right:90px;}
 .top_bg .top_area:after{display:block;content:'';clear:both;}
 .top_bg .top_area .t_search{width:100%;box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);margin: 0px 0 0 0;}
-.top_bg .top_area .t_alarm{position:absolute;top: 0px;right:20px;z-index:111;}
+.top_bg .top_area .t_alarm{position:absolute;top: 0px;right: 10px;z-index:111;}
  .top_bg .top_area .t_alarm .t_alarm_btn{background:#fff url('../img/drawable-xxxhdpi/alarm.png')no-repeat center; text-indent:-9999px; width:50px; height:50px; background-size:25px; border:none; border-radius:50px; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);}
  .top_bg .top_area .t_alarm.on .t_alarm_btn{background:#fff url('../img/drawable-xxxhdpi/alarm_on.png')no-repeat center;background-size:25px; }
 
@@ -496,7 +497,7 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 	.reserve_list ul li .reserve_info .check_state p:nth-child(2){margin-left:10px;}
 }
 
-.bot_list{background:#f1f1f1; padding:15px; border-radius:5px; position:absolute; bottom:0; max-height:768px; height:85vh; width:100%; z-index:333; display:none; box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);}
+.bot_list{background:#f1f1f1;padding:15px;border-radius:5px;position:absolute;bottom:0;max-height:768px;height:85vh;width:100%;z-index:333;display:none;box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);}
 .bot_list h4{font-size:20px; font-weight:600; margin-top:10px; padding-bottom:15px;}
 .bot_list h4 .bot_sub{font-size:12px; font-weight:300; padding-left:10px; color:#858585;}
 .list_close{position:absolute; right:15px; top:25px; background:url('../img/drawable-xxxhdpi/clear_btn_black.png')center no-repeat; width:30px; height:30px; border:none; text-indent:-9999px; background-size:20px;}
@@ -552,11 +553,35 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 .left_bot .left_bot_menu ul li.custom_ico a{background: url('../img/drawable-xxxhdpi/service_center.png')center 9px no-repeat;background-size:20px;}
 .left_bot .left_bot_menu ul li.set_ico a{background: url('../img/drawable-xxxhdpi/mypage_ico.png')51% 9px no-repeat;background-size: 20px;}
 
+@media screen and (min-width:320px){
+	.bot_list ul{height:56vh;}
+}
+@media screen and (min-width:375px) {
+	.bot_list ul{height:60vh;}
+}
+
+@media screen and (min-width:414px){
+	.bot_list ul{height:62vh;}
+}
+
+@media screen and (min-width:768px){
+	.bot_list ul{height:58vh;}
+}
 
 @media screen and (min-width:1024px){
 	.bot_list ul{height:44vh;}
 }
+
+@media screen and (min-height:812px) and (orientation: portrait) {
+	.bot_list ul{height:calc(70vh - 35px);}
+}
+
 /* 방문신청 정보작성 페이지 max:iPhone Plus */
+
+
+
+
+
 
 @media screen and (max-width:375px){
 	.id_find .green{float:none; display:inline-block; margin-top:5px;}
