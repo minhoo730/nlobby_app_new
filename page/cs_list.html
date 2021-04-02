@@ -15,7 +15,7 @@
 	<body>
 		<div id="wrap">
 			<header>
-				<h1 class="title_line"><a href="#"> < </a>고객센터</h1>
+				<h1 class="title_line"><a href="javascript:history.back();"> < </a>고객센터</h1>
 			</header>
 			<div id="content">
 				<div class="cs_area">
@@ -28,7 +28,12 @@
 									</p>
 								</div>
 							</li>
-							<li><span class="ask">자주 방문하는 장소를 등록하고 싶어요.</span></li>
+							<li><span class="ask">자주 방문하는 장소를 등록하고 싶어요.</span>
+								<div class="reply">
+									<p>방문신청은 엔로비 앱 메인화면에서 현재 나의 위치 중심으로 가까운 곳을 찾아서 신청하거나 또는 직접 찾으시는 방문사를 검색해서 찾은 뒤 방문신청이 가능하며, 방문신청 이후의 진행상황은 왼쪽 상단버튼을 누르고 <b>방문예약확인</b>을 누르시면 확인하실 수 있습니다.
+									</p>
+								</div>
+							</li>
 							<li><span class="ask">엔로비에 등록된 장소가 아닌 다른장소를 등록하고 싶어요.</span></li>
 							<li><span class="ask">엔로비에 등록된 사용자로 등록하고 싶어요.</span></li>
 							<li><span class="ask">방문정보를 등록하거나 수정하고 싶어요.</span></li>
@@ -41,7 +46,7 @@
 				</div>
 			</div>
 			<div id="inquiry_btn">
-				<button class="completed_btn btn">1:1문의</button>
+				<button class="green_bg btn" onclick="location.href='inquiry_write.html';">1:1문의</button>
 			</div>
 		</div>
 	</body>

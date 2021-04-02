@@ -15,12 +15,12 @@
 	<body>
 		<div id="wrap">
 			<header>
-				<h1 class="title_line"><a href="#"> < </a>임직원 인증</h1>
+				<h1 class="title_line"><a href="javascript:history.back();"> < </a>임직원 인증</h1>
 			</header>
 			<div id="content" class="gray_bg">
 				<div class="company_area">
 					<div class="my_company">
-						<h3>소속회사<span class="green">엔로비</span><button class="change_btn">변경</button></h3>
+						<h3>소속회사<span class="green">엔로비</span><button class="change_btn" onclick="location.href='company_find.html'">변경</button></h3>
 					</div>
 				</div>
 				<div class="login_area">
@@ -31,28 +31,31 @@
 							<input type="password" class="pw form" placeholder="비밀번호 입력" >
 							<input type="text" class="id form" placeholder="아이디" disabled>
 							<input type="password" class="pw form" placeholder="비밀번호" disabled>
-							<p class="error_m">소속회사를 입력해주세요.</p>
+							<p class="error_m">아이디 또는 비밀번호를 잘못입력하셨습니다.</p>
+							<p class="error_m">구글APPS로 로그인 되었습니다. 임직원 등록완료 버튼을 눌러주세요.</p>
+							<p class="error_m">로그인이 되었습니다. 임직원 등록완료 버튼을 눌러주세요.</p>
 						</div>
 						<div class="btn_area">
 							<button id="login_btn" class="green_line btn">로그인</button>
-							<button id="login_btn" class="green_bg btn">인증완료</button>
+							<button id="login_btn" class="green_bg btn">인증 되었습니다.</button>
 						</div>
 						<div class="google_login">
 							<p><span class="green">구글APPS 연동고객사</span>는 아래 로그인을 이용해주세요.</p>
 							<button id="google_btn" class="black_line btn"><span class="google_ico">Google Apps 로그인</span></button>
-							<button id="google_btn" class="green_bg btn">인증완료</button>
+							<button id="google_btn" class="green_bg btn">인증 되었습니다.</button>
+							<button id="google_btn" class="green_bg btn">로그인</button>
 							<p class="id_find">아이디 / 비밀번호를 잊어버리셨나요?<a href="#" class="green">아이디 / 비밀번호 찾기</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="customer_link">
 					<p>로그인이 안되시는 경우 고객센터를 통해서 문의하시면<br>
-					확인 후 빠르게 도와드리겠습니다.<br><a href="#" class="page_link">고객센터 바로가기</a></p>
+					확인 후 빠르게 도와드리겠습니다.<br><a href="cs_list.html" class="page_link">고객센터 바로가기</a></p>
 				</div>
 			</div>
 			<div id="footer_btn">
-				<button class="complet_btn btn" disabled>인증완료</button>
-				<button class="completed_btn btn">인증완료</button>
+				<button id="complet_btn" class="btn">인증완료</button>
+				<button onclick="location.href='map.html'" id="completed_btn" class="green_bg btn">인증완료</button>
 			</div>
 		</div>
 	</body>

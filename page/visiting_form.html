@@ -6,11 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0,maximum-scale=10,user-scalable=yes">
 		<title>초기방문신청 정보 작성</title>
 		<!--<link rel="stylesheet" type="text/css" href="../css/normalize.css">-->
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/font.css">
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 		<link rel="stylesheet" type="text/css" href="../css/common.css">
-		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script> 
 		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="../js/nlobby_script.js"></script>
 	</head>
@@ -87,8 +85,8 @@
 				</div>
 			</div>
 			<div id="footer_btn">
-				<p class="complet_btn"><a href="#" class="btn">작성완료</a></p>
-				<p class="completed_btn"><a href="visiting_complete.html" class="btn"data-transition="slidefade" >작성완료</a></p>
+				<button id="complet_btn" class="btn">작성완료</button>
+				<button onclick="location.href='visiting_complete.html'" id="completed_btn" class="btn">작성완료</button>
 			</div>
 		</div>
 	</body>
