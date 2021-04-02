@@ -7,11 +7,12 @@
 		$('.form_label input[name="keyword"]').on('input propertychange', function() {
 			var $this = $(this);
 			var visible = Boolean($this.val());
-			$this.siblings('.txt_clear').toggleClass('hidden', !visible);
+			$this.siblings('.txt_clear').toggleClass('clear', !visible);
 		}).trigger('propertychange');
 		$('.txt_clear').click(function() {
 			$(this).siblings('input[name="keyword"]').val('')
-				.trigger('propertychange').focus();
+				//.trigger('propertychange').focus();
+				.trigger('propertychange').click();
 		});
 
 		// 좌상단 버튼 클릭시 좌측 메뉴 노출
@@ -141,6 +142,11 @@
 		});
 
 		$(".visit_seaech").on('click',function(){
+			$(".flow_search").css("display","block");
+			$(".flow_search .place_form").focus();
+		});
+
+		$(".company").on('click',function(){
 			$(".flow_search").css("display","block");
 			$(".flow_search .place_form").focus();
 		});
