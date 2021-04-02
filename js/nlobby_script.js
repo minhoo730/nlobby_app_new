@@ -135,7 +135,7 @@
 			$(".gray_company").slideUp(200);
 		});
 
-		$(".place_form").on('focus',function(){
+		$(".place_form").on('click',function(){
 			$(".flow_search").css("display","block");
 			$(".flow_search .place_form").focus();
 		});
