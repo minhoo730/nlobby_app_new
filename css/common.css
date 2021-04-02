@@ -657,10 +657,6 @@ button.txt_clear{background:url('../img/drawable-xxxhdpi/clear_ico.png')no-repea
 }
 
 
-@media screen and (min-height:736px){
-	.left_area .left_menu{max-height:400px;}
-}
-
 @media screen and (min-height:812px){
 	.bot_list ul{height:calc(67vh - 25px) !important;}
 	.left_area .left_menu{max-height:443px;}
