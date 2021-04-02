@@ -38,7 +38,7 @@ input::placeholder, textarea::placeholder{color:#a9a9a9; font-weight:300;}
 
 /* focus 효과 */
 .custom_select.focus {
-	border-color: #849c23;
+	border-bottom:1px solid #849c23;
 }
 
 /* 가상 선택자를 활용 화살표 대체 */
@@ -131,6 +131,7 @@ h2.header_line{font-size:18px; margin-bottom:10px;}
 
 /* 폼 공통 */
 .apply_form{padding-top:25px; margin-bottom:30px;}
+.apply_form:after{display:block; content:''; clear:both;}
 .apply_form label:first-child{margin-top:0;}
 label.form_label{display:block; font-weight:300; font-size:16px; line-height:26px; margin-top:15px; position:relative;}
 .form_title{display:inline-block; color:#a9a9a9; position:relative; padding-right:10px;}
@@ -385,7 +386,7 @@ label textarea{width:100%; height:400px; border:none; margin-top:5px; font-size:
 .mypage .mypage_info p a:before{position:absolute; content:''; width:10px; height:20px; right:0; top:8px; background:url('../img/drawable-xxxhdpi/next6_ico.png')no-repeat; background-size:6px;}
 
 .alarm_setup{width:100%; margin-top:10px; background:#fff; box-shadow: 0 0 5px 0 rgb(0 0 0 / 0.15);}
-.apply_info{max-width: 768px; margin: auto; padding:20px;}
+.apply_info{max-width: 768px; margin: auto;}
 .apply_info .apply_form:after{display:block; content:''; clear:both;}
 .push_alarm{float:left;}
 .alarm_setup .apply_form{margin-bottom:0;padding-top:10px;}
@@ -409,6 +410,8 @@ label textarea{width:100%; height:400px; border:none; margin-top:5px; font-size:
 .reset_btn a:before{padding-right:20px; position:absolute; content:''; width:10px; height:20px; right:-20px; top:8px; background:url('../img/drawable-xxxhdpi/next4_ico.png')no-repeat; background-size:6px;}
 
 .change_company{width:100%; margin-top:10px; background:#fff; box-shadow: 0 0 5px 0 rgb(0 0 0 / 0.15);}
+
+.setup_area{padding:20px;}
 .member_info{position:relative;}
 .member_info:after{display:block; content:''; clear:both;}
 .member_info p{display:inline-block; line-height:30px; color:#849c23; font-weight:500;}

@@ -140,6 +140,13 @@
 			$(".flow_search .place_form").focus();
 		});
 
+		$(".visit_seaech").on('click',function(){
+			$(".flow_search").css("display","block");
+			$(".flow_search .place_form").focus();
+		});
+
+
+
 		$(function() {	//화면 다 뜨면 시작
 			var searchSource = ["엔로비", "GS칼텍스", "GS건설", "나이키", "풍산그룹","HSBC빌딩","(주)에이치시티","머크","(주)제이티","울산항만공사","여수항만공사","한국전자기술연구원" ]; // 배열 형태로 
 			$("#searchbox").autocomplete({  //오토 컴플릿트 시작
