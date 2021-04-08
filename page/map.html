@@ -14,6 +14,8 @@
 		<script type="text/javascript" src="../js/naver_map.js"></script>
 		<script type="text/javascript" src="../js/nlobby_script.js"></script>
 		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=do3rhd973l"></script>
+		<script type="text/javascript" src="../js/accidentdeath.js"></script>
+		<script type="text/javascript" src="../js/MarkerClustering.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -23,10 +25,20 @@
 					<div class="f_search">
 						<button class="back_btn" id="back_btn"> < </button>
 						<button class="txt_clear btn">지우기</button>
-						<!--
-						<input type="search" name="keyword" class="place_form typeahead" id="searchbox" placeholder="주소 / 장소검색"/>
-						-->
+						<button class="search_ico btn">검색아이콘</button>
 						<input type="search" name="keyword" class="place_form" id="searchbox" placeholder="주소 / 장소검색"/>
+					</div>
+				</div>
+			</div>
+			<div id="flow_result" class="flow_result">
+				<div class="result_top">
+					<div class="f_result">
+						<button class="back_btn" id="back_btn"> < </button>
+						<p class="result_keyword">엔로비</p>
+						<button class="clear_btn btn">지우기</button>
+						<!--
+						<input type="text" name="keyword" class="place_form" id="searchbox" placeholder="검색결과"/>
+						-->
 					</div>
 				</div>
 			</div>
@@ -738,9 +750,31 @@
 					</div>
 				</div>
 			</div>
-			<script>
 
-			</script>
+			<!-- 검색 결과 -->
+			<div class="search_input company_pop">
+				<button class="close_btn">X</button>
+				<div class="list_title">
+					<div class="tab_filter">
+						<ul class="scroll">
+							<li class="on"><a href="#">내 위치 중심</a></li>
+							<li><a href="#">정확도 순</a></li>
+						</ul>
+					</div>
+					<div class="result">
+						<ul class="scroll">
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

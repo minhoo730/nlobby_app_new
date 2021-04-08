@@ -2,7 +2,7 @@
 		var HOME_PATH = window.HOME_PATH || '.';
 		var locationBtnHtml = '<p class="location_ico"><a href="#">현재위치 아이콘</a></p>';
 		var linkBtnHtml = '<p class="adm_ico"><a href="https://demo.nlobby.com/dash">방문관리 아이콘</a></p>';
-		var redMarker = '<div class="mapbridge no_mark"><div class="map_group _map_group"><div class="map_marker _marker noa"><span class="ico _icon"></span><span class="shd">마커</span></div></div></div>';
+		var redMarker = '<div class="mapbridge no_mark"><div class="map_group _map_group"><div class="map_marker _marker noa"><span class="ico _icon"></span><span class="mark_txt">현재장소 정보 보기</span><span class="shd">마커</span></div></div></div>';
 
 		var map = new naver.maps.Map('map', {
 			center: new naver.maps.LatLng(35.176266914354606, 129.1258162545757), //지도의 초기 중심 좌표
@@ -224,6 +224,27 @@
 									'<div class="map_marker _marker"> ',
 										'<span class="ico _icon"></span>',
 										'<span class="shd">+3</span>',
+									'</div>',
+								'</div>',
+							'</div>'
+						].join(''),
+				size: new naver.maps.Size(40, 45),
+				anchor: new naver.maps.Point(19, 40),
+			},
+			draggable: false
+		});
+
+		// 검색결과 말풍선
+		var resultTooltip = new naver.maps.Marker({
+			position: new naver.maps.LatLng(35.17639582442249, 129.12574217866194),
+			map: map,
+			icon: {
+				content: [
+							'<div class="mapbridge result_tooltip">',
+								'<div class="map_group _map_group">',
+									'<div class="map_marker _marker"> ',
+										'<span class="ico _icon"></span>',
+										'<span class="mark_txt">엔로비 본사</span>',
 									'</div>',
 								'</div>',
 							'</div>'

@@ -23,17 +23,12 @@
 						<div class="agreement">
 							<h2 class="header_line">이용약관 동의</h2>
 							<div class="check_box">
-								<button class="con_btn">모두동의</button>
-								<!--<button class="checked con_btn">모두동의</button>-->
+								<button class="con_btn">전체동의</button>
 								<div class="check_form">
-									<p class="check_list">
-										<input type="checkbox" id="provision1" name="check_input" class="check_input"/>
-										<label for="provision1">엔로비 이용약관 동의 (필수)<a href="#"><i class="uil uil-angle-right"></i></a></label>
-									</p>
-									<p class="check_list">
-										<input type="checkbox" id="provision2" name="check_input" class="check_input"/>
-										<label for="provision2">엔로비 개인정보 처리방침 (필수)<a href="#"><i class="uil uil-angle-right"></i></a></label>
-									</p>
+									<input type="checkbox" id="provision1" name="check_input" class="check_input">
+									<label for="provision1">엔로비 이용약관 동의 (필수)<a href="#"><i class="uil uil-angle-right"></i></a></label>
+									<input type="checkbox" id="provision2" name="check_input" class="check_input">
+									<label for="provision2">엔로비 개인정보 처리방침 (필수)<a href="#"><i class="uil uil-angle-right"></i></a></label>
 								</div>
 							</div>
 						</div>
@@ -89,5 +84,24 @@
 				<button onclick="location.href='visiting_complete.html'" id="completed_btn" class="btn">작성완료</button>
 			</div>
 		</div>
+		<script>
+			var check_form = document.querySelector('.check_form');
+			var inputs = [...check_form.children];
+			var allBtn = document.querySelector('.con_btn');
+
+			allBtn.onclick = () => {
+				if (inputs.filter(input => input.checked).length === inputs.length) {
+					inputs.forEach(input => {input.checked = false; });
+					$('.con_btn').removeClass('checked');
+					$('#complet_btn').css('display','block');
+					$('#completed_btn').css('display','none');
+				} else {
+					inputs.forEach(input => {input.checked = true; });
+					$('.con_btn').addClass('checked');
+					$('#complet_btn').css('display','none');
+					$('#completed_btn').css('display','block');
+				}
+			};
+		</script>
 	</body>
 </html>

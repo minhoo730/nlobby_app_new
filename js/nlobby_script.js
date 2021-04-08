@@ -1,8 +1,4 @@
 	$(document).ready(function(){
-		$("#back_btn").click(function(){
-			$("#flow_search").css("display","none");
-		});
-
 		// 삭제 버튼 클릭시 텍스트 제거 스크립트
 		$('.form_label input[name="keyword"]').on('input propertychange', function() {
 			var $this = $(this);
@@ -138,19 +134,62 @@
 
 		$(".place_form").on('click',function(){
 			$(".flow_search").css("display","block");
+			$(".result_top").css("display","none");
 			$(".flow_search .place_form").focus();
 		});
 
-		$(".visit_seaech").on('click',function(){
-			$(".flow_search").css("display","block");
-			$(".flow_search .place_form").focus();
-		});
 
 		$(".company").on('click',function(){
 			$(".flow_search").css("display","block");
+			$(".result_top").css("display","none");
 			$(".flow_search .place_form").focus();
 		});
 
+
+		$(".visit_seaech").on('click',function(){
+			$(".flow_search").css("display","block");
+			$(".result_top").css("display","none");
+			$(".flow_search .place_form").focus();
+		});
+
+
+
+		// 검색 결과 스크립트 
+		$(".search_input .close_btn").click(function(){
+			$(".search_input").slideUp(200);
+			$("#flow_result").css("display","none");
+			$(".result_tooltip").css("display","none");
+		});
+
+		$(".search_ico").on("click",function(){
+			$("#flow_search").css("display","none");
+			$("#flow_result").css("display","block");
+			$(".result_top").css("display","block");
+			$(".company_pop").css("display","none")
+			$(".mapbridge").css('display','none');
+			$(".result_tooltip").css("display","block");
+			$(".search_input").slideDown(200);
+		});
+		$("#back_btn").click(function(){
+			$("#flow_search").css("display","none");
+			$(".mapbridge").css('display','block');
+			$(".result_tooltip").css("display","none");
+		});
+
+		$("#flow_result .back_btn").click(function(){
+			$("#flow_result").css("display","none");
+			$(".mapbridge").css('display','block');
+			$(".result_tooltip").css("display","none");
+			$(".search_input").slideUp(200);
+		});
+
+		$(".result_keyword, .clear_btn").on("click",function(){
+			$("#flow_search").css("display","block");
+			$(".flow_search .place_form").focus();
+			$("#flow_result").css("display","none");
+			$(".result_top").css("display","none");
+			$(".search_input").slideUp(200);
+		});
 
 
 		$(function() {	//화면 다 뜨면 시작

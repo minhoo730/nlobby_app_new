@@ -4,12 +4,14 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0,maximum-scale=10,user-scalable=yes">
-		<title>사용자 정보</title>
+		<title>마이페이지</title>
 		<!--<link rel="stylesheet" type="text/css" href="../css/normalize.css">-->
 		<link rel="stylesheet" type="text/css" href="../css/font.css">
+		<link rel="stylesheet" type="text/css" href="../css/owl.carousel.css">
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 		<link rel="stylesheet" type="text/css" href="../css/common.css">
 		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="../js/owl.carousel.js"></script>
 		<script type="text/javascript" src="../js/nlobby_script.js"></script>
 	</head>
 	<body>
@@ -22,12 +24,12 @@
 					<div class="mypage">
 						<h2 class="header_line">내 정보</h2>
 						<div class="mypage_info">
-							<p class="my_name">이름<a href="#">이민호</a></p>
-							<p class="my_pany">소속회사<a href="#">(주)엔로비</a></p>
-							<p class="my_rank">직책<a href="#">주임</a></p>
-							<p class="my_car">차량번호<a href="#">123가1234</a></p>
-							<p class="my_phone">휴대폰 번호<a href="#">010-1234-1234</a></p>
-							<p class="my_mail">이메일 주소<a href="#">nim730@nlobby.com</a></p>
+							<p class="my_name">이름<a href="mypage_mod.html">이민호</a></p>
+							<p class="my_pany">소속회사<a href="mypage_mod.html">(주)엔로비</a></p>
+							<p class="my_rank">직책<a href="mypage_mod.html">주임</a></p>
+							<p class="my_car">차량번호<a href="mypage_mod.html">123가1234</a></p>
+							<p class="my_phone">휴대전화번호<a href="mypage_mod.html">010-1234-1234</a></p>
+							<p class="my_mail">이메일 주소<a href="mypage_mod.html">nim730@nlobby.com</a></p>
 						</div>
 					</div>
 				</div>
@@ -38,7 +40,7 @@
 							<p class="mb_company">엔로비</p>
 							<div class="change_btn">
 								<button class="delete_btn btn">삭제</button>
-								<button class="change_btn btn">변경</button>
+								<button class="change_btn btn" onclick="location.href='company_find.html';">변경</button>
 							</div>
 						</div>
 					</div>
@@ -61,5 +63,96 @@
 				</div>
 			</div>
 		</div>
+		<div id="reset_popup" class="nlobby_modal">
+			<div class="popup_area">
+				<div class="popup_bg">
+					<div class="pupup_con">
+						<div class="popup_txt">
+							<h4 class="pop_title">개인정보 초기화 하실경우<br>저장된 모든 데이터가 사라집니다.<br>초기화 하시겠습니까?</h4>
+							<div class="pop_btn">
+								<button class="cancel_btn btn">취소</button>
+								<button class="confirm_btn green_bg btn" onclick="location.href='visiting_form.html';">확인</button>
+							</div>
+						</div>
+						<div class="modal_bg"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="delete_popup" class="nlobby_modal">
+			<div class="popup_area">
+				<div class="popup_bg">
+					<div class="pupup_con">
+						<div class="popup_txt">
+							<h4 class="pop_title">현재 인증된 임직원 소속회사를<br>삭제하시겠습니까?</h4>
+							<div class="pop_btn">
+								<button class="cancel_btn btn">취소</button>
+								<button id="delete_complet"class="confirm_btn green_bg btn">확인</button>
+							</div>
+						</div>
+						<div class="modal_bg"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="delete_complet_pop" class="nlobby_modal">
+			<div class="popup_area">
+				<div class="popup_bg">
+					<div class="pupup_con">
+						<div class="popup_txt">
+							<h4 class="pop_title">삭제완료되었습니다.<br>재 등록 시 좌측 메뉴에서<br>임직원 등록을 이용바랍니다.</h4>
+							<button class="confirm_btn green_bg btn" onclick="">확인</button>
+						</div>
+						<div class="modal_bg" onclick=""></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script>
+			$(document).ready(function(){
+				$('.reset_btn').on('click', function scrollDisable(){
+					$('html, body').addClass('hidden');
+					$('#reset_popup').css('display','block');
+					$('.modal_bg').css('display','block'); 
+				});
+				$('#reset_popup .cancel_btn, .modal_bg').on('click', function scrollAble(){
+					$('html, body').removeClass('hidden');
+					$('#reset_popup').css('display','none'); 
+					$('.modal_bg').css('display','none'); 
+				});
+
+				$('.delete_btn').on('click', function scrollDisable(){
+					$('html, body').addClass('hidden');
+					$('#delete_popup').css('display','block');
+					$('.modal_bg').css('display','block');
+				});
+
+				$('#delete_popup .cancel_btn, .modal_bg').on('click', function scrollAble(){
+					$('html, body').removeClass('hidden');
+					$('#delete_popup').css('display','none'); 
+					$('.modal_bg').css('display','none'); 
+				});
+
+				$("#delete_complet").on("click",function(){
+					$("#delete_popup").css('display','none');
+					$("#delete_complet_pop").css('display','block');
+					$("#delete_complet_pop .confirm_btn").on("click", function(){
+						$(".change_company").css('display','none');
+						$("#delete_complet_pop").css('display','none');
+					});
+					$('#delete_complet_pop .modal_bg').on('click', function scrollAble(){
+						$('html, body').removeClass('hidden');
+						$(".change_company").css('display','none');
+						$('#delete_complet_pop').css('display','none'); 
+						$('.modal_bg').css('display','none'); 
+					});
+				});
+			});
+		</script>
+
 	</body>
 </html>
