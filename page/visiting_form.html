@@ -118,11 +118,11 @@
 				tooLong: '_tooLong',
 				tooShort: '6자 이상 입력하세요',
 				typeMismatch: '이메일 주소 형식으로 입력하세요',
-				//valueMissing: '이메일을 반드시 입력하세요',
+				valueMissing: '이메일을 반드시 입력하세요',
 			}
 
 			function getMessage(validity) {
-				for (const key in validityMessage) {
+				for (var key in validityMessage) {
 					if (validity[key]) {
 						return validityMessage[key]
 					}
