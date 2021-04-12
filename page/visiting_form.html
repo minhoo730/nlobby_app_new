@@ -137,6 +137,16 @@
 				// 작성이 완료되면 작성완료 페이지 이동
 				location.href=('visiting_complete.html');
 			}
+
+			function showError(input) {
+			  // 커스텀 오류 메시지 UI
+			  document.querySelector(".error_m").textContent = getMessage(input.validity)
+			}
+
+			input.addEventListener("invalid", e => {
+			  // 브라우져 툴팁 숨김
+			  e.preventDefault()
+			})
 		</script>
 	</body>
 </html>
