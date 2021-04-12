@@ -118,10 +118,10 @@ input::-webkit-search-results-decoration{
 #sp_footer p{font-size:16px; color:#a9a9a9;}
 
 /* 헤더 공통 */
-header{width:100%; margin: auto; height:60px; background:#fff; box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15); text-align:center; position:fixed; top:0; z-index:111;}
+header{width:100%; margin: auto; height:60px; background:#fff; box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15); text-align:center; position:fixed; top:0; z-index:555;}
 h1.title_line{font-size:20px; font-weight:600; padding:15px 0; position:relative;}
 h2.header_line{font-size:18px; margin-bottom:10px;}
-.error_m{font-size:16px; color:#ff0000; margin-top:5px; display:none;}
+.error_m{font-size:16px; color:#ff0000; margin-top:5px; display:none; font-weight:400;}
 .red{color:#ff0000;}
 
 .btn{width:100%; padding:10px; background:#d9d9d9; color:#fff; text-align:center; font-size:16px; height:50px; display:block; border:none; position:relative;}
@@ -249,18 +249,20 @@ label textarea{width:100%; height:250px; border:none; margin-top:5px; font-size:
 /* 임직원 로그인 */
 .login_area{width:100%; background:#fff; box-shadow: 0 0 5px 0 rgb(0 0 0 / 0.15);}
 .login{max-width:768px; margin:auto; margin-top:10px; padding:15px 20px 20px 20px; }
-.login_form input{margin-top:15px; padding-right:0;}
+.login_form input{margin-top:15px; padding-right:0; padding-left:10px;}
 .login_form input.id{margin-top:0; padding-right:0;}
 .login_form input:disabled{border-bottom:none; display:none;}
+.login_success{}
 .btn_area{margin:20px 0; padding-bottom:15px; border-bottom:1px solid #e1e1e1;}
 .login_area .green_bg{display:none;}
 .google_login p{padding-bottom:10px; font-size:16px;}
-.google_login .green{text-decoration:none;}
+.google_login p span.green{text-decoration:none;}
 .google_login .black_line .google_ico{position:relative; padding-left:30px;}
 .google_login .black_line .google_ico:before{position:absolute; content:''; width:20px; height:20px; top:0px; left:0px; background:url('../img/drawable-xxxhdpi/google_ico.png')no-repeat center; background-size:20px;}
+.google_login #google_lgn{display:none; cursor:unset;}
 .id_find{padding:25px 0; font-size:14px;}
 .id_find:after{display:block; content:''; clear:both;}
-.id_find .green{float:right; position:relative; padding-right:15px;}
+.id_find .green{float:right; position:relative; padding-right:15px; text-decoration:none;}
 .id_find .green:before{position:absolute;content:'';width: 7px;height:10px;right:0;top: 8px;background:url('../img/drawable-xxxhdpi/next2_ico.png')no-repeat center;background-size: 7px;}
 
 .customer_link{max-width:768px; margin:auto; padding:15px 20px 60px 20px;}

@@ -41,47 +41,52 @@
 							<span class="t_mini">입력하신 정보는 스마트폰에 저장되며 서버로 전송되지 않습니다.</span>
 						</p>
 						<div class="apply_form">
-							<label class="red_form form_label">
-								<span class="form_title">이름</span>
-								<input type="text" name="keyword" class="name form" placeholder="이름 입력"/>
-								<button class="txt_clear btn">지우기</button>
-							</label>
-							<p class="error_m">이름을 입력해주세요.</p>
-							<label class="red_form form_label">
-								<span class="form_title">소속회사</span>
-								<input type="text" name="keyword" class="company form" placeholder="소속회사 입력"/>
-								<button class="txt_clear btn">지우기</button>
-							</label>
-							<p class="error_m">소속회사를 입력해주세요.</p>
-							<label class="red_form form_label">
-								<span class="form_title">직책</span>
-								<input type="text" name="keyword" class="duty form" placeholder="예) 사원 / 주임 / 대리 / 과장"/>
-								<button class="txt_clear btn">지우기</button>
-							</label>
-							<p class="error_m">직책을 입력해주세요.</p>
-							<label class="red_form form_label">
-								<span class="form_title">휴대전화번호</span>
-								<input type="tel" name="keyword" class="phone form" placeholder="예) 01012341234"/>
-								<button class="txt_clear btn">지우기</button>
-							</label>
-							<p class="error_m">휴대전화번호를 입력해주세요.</p>
-							<label class="free_form form_label">
-								<span class="form_title">차량번호</span>
-								<input type="text" name="keyword" class="car_num form" placeholder="예) 123가1234"/>
-								<button class="txt_clear btn">지우기</button>
-							</label>
-							<label class="free_form form_label">
-								<span class="form_title">이메일</span>
-								<input type="email" name="keyword" class="email form" placeholder="예) abc@abcdefg.com"/>
-								<button class="txt_clear btn">지우기</button>
-							</label>
+							<form name="frm1">
+								<label class="red_form form_label name_label">
+									<span class="form_title">이름</span>
+									<input type="text" name="name" class="name form" placeholder="이름 입력" required />
+									<button class="txt_clear btn">지우기</button>
+								</label>
+								<p class="error_m name_error">이름을 입력해주세요.</p>
+								<label class="red_form form_label company_label">
+									<span class="form_title">소속회사</span>
+									<input type="text" name="company" class="company form" placeholder="소속회사 입력" required/>
+									<button class="txt_clear btn">지우기</button>
+								</label>
+								<p class="error_m company_error">소속회사를 입력해주세요.</p>
+								<label class="red_form form_label duty_label">
+									<span class="form_title">직책</span>
+									<input type="text" name="duty" class="duty form" placeholder="예) 사원 / 주임 / 대리 / 과장" required/>
+									<button class="txt_clear btn">지우기</button>
+								</label>
+								<p class="error_m duty_error">직책을 입력해주세요.</p>
+								<label class="red_form form_label phone_label">
+									<span class="form_title">휴대전화번호</span>
+									<input type="tel" name="phone" class="phone form" placeholder="예) 01012341234" required/>
+									<button class="txt_clear btn">지우기</button>
+								</label>
+								<p class="error_m phone_error">휴대전화번호를 입력해주세요.</p>
+								<label class="free_form form_label car_label">
+									<span class="form_title">차량번호</span>
+									<input type="text" name="car_num" class="car_num form" placeholder="예) 123가1234"/>
+									<button class="txt_clear btn">지우기</button>
+								</label>
+								<label class="free_form form_label">
+									<span class="form_title">이메일</span>
+									<input type="email" name="email" class="email form" placeholder="예) abc@abcdefg.com"/>
+									<button class="txt_clear btn">지우기</button>
+								</label>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="footer_btn">
 				<button id="complet_btn" class="btn">작성완료</button>
+				<!--
 				<button onclick="location.href='visiting_complete.html'" id="completed_btn" class="btn">작성완료</button>
+				-->
+				<button  onclick="check_onclick();" id="completed_btn" class="btn">작성완료</button>
 			</div>
 		</div>
 		<script>
@@ -102,6 +107,36 @@
 					$('#completed_btn').css('display','block');
 				}
 			};
+
+			function check_onclick(){
+				theForm=document.frm1;
+				if(theForm.name.value==""){
+					$(".name_error").css("display","block");
+					return theForm.name.focus();
+				} else {
+					$(".name_error").css("display","none");
+				}
+				if(theForm.company.value==""){
+					$(".company_error").css("display","block");
+					return theForm.company.focus();
+				} else {
+					$(".company_error").css("display","none");
+				}
+				if(theForm.duty.value==""){
+					$(".duty_error").css("display","block");
+					return theForm.duty.focus();
+				} else {
+					$(".duty_error").css("display","none");
+				}
+				if(theForm.phone.value==""){
+					$(".phone_error").css("display","block");
+					return theForm.phone.focus();
+				} else {
+					$(".phone_error").css("display","none");
+				}
+				// 작성이 완료되면 작성완료 페이지 이동
+				location.href=('visiting_complete.html');
+			}
 		</script>
 	</body>
 </html>

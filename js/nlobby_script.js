@@ -1,12 +1,14 @@
 	$(document).ready(function(){
 		// 삭제 버튼 클릭시 텍스트 제거 스크립트
-		$('.form_label input[name="keyword"]').on('input propertychange', function() {
+		//$('.form_label input[name="keyword"]').on('input propertychange', function() {
+		$('.form_label input').on('input propertychange', function() {
 			var $this = $(this);
 			var visible = Boolean($this.val());
 			$this.siblings('.txt_clear').toggleClass('clear', !visible);
 		}).trigger('propertychange');
 		$('.txt_clear').click(function() {
-			$(this).siblings('input[name="keyword"]').val('')
+			//$(this).siblings('input[name="keyword"]').val('')
+			$(this).siblings('input').val('')
 				//.trigger('propertychange').focus();
 				.trigger('propertychange').click();
 		});
@@ -159,6 +161,8 @@
 			$(".search_input").slideUp(200);
 			$("#flow_result").css("display","none");
 			$(".result_tooltip").css("display","none");
+			$(".mapbridge").css('display','block');
+			$(".result_tooltip").css("display","none");
 		});
 
 		$(".search_ico").on("click",function(){
@@ -169,6 +173,10 @@
 			$(".mapbridge").css('display','none');
 			$(".result_tooltip").css("display","block");
 			$(".search_input").slideDown(200);
+			$('.modal_bg').css("display","none"); 
+			$('.left_area').css({
+				left: '-' + 260 + 'px'
+			});
 		});
 		$("#back_btn").click(function(){
 			$("#flow_search").css("display","none");
@@ -187,6 +195,7 @@
 			$("#flow_search").css("display","block");
 			$(".flow_search .place_form").focus();
 			$("#flow_result").css("display","none");
+			$(".mapbridge").css('display','block');
 			$(".result_top").css("display","none");
 			$(".search_input").slideUp(200);
 		});
