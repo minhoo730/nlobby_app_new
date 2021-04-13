@@ -751,30 +751,25 @@
 				</div>
 			</div>
 
-			<!-- 검색 결과 -->
-			<div class="search_input company_pop">
-				<button class="close_btn">X</button>
-				<div class="list_title">
-					<div class="tab_filter">
-						<ul class="scroll">
-							<li class="on"><a href="#">내 위치 중심</a></li>
-							<li><a href="#">정확도 순</a></li>
-						</ul>
-					</div>
-					<div class="result">
-						<ul class="scroll">
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-							<li><a href="#">엔로비<br><span class="search_address">부산광역시 해운대구 센텀동로 99</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<script>
+				var shareButton = document.querySelector('.share_ico');
+				
+				shareButton.addEventListener('click', event => {
+					if (navigator.share) {
+					navigator.share({
+						title: 'WebShare API Demo',
+						url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+					}).then(() => {
+						console.log('Thanks for sharing!');
+					})
+					.catch(console.error);
+					} else {
+					// fallback
+					}
+				});
+			</script>
+			<style>
+			</style>
 		</div>
 	</body>
 </html>

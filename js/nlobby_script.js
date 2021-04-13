@@ -128,7 +128,7 @@
 			$(".gray_company").slideDown(200);
 			$(".nodata_com").slideUp(200);
 			$(".green_company").slideUp(200);
-		})
+		});
 		$(".gray_company .close_btn").click(function(){
 			$(".gray_nlobby, .gray_company").removeClass("on");
 			$(".gray_company").slideUp(200);
@@ -297,20 +297,5 @@
 				$(this).parent().removeClass('focus');
 			});
 		});
-
-		var shareButton = document.querySelector('.share_ico');
-		
-		shareButton.addEventListener("click", async () => {
-			try {
-			  await navigator.share({
-				title: "엔로비 앱 방문신청 테스트",
-				text: "엔로비 앱 방문신청 테스트입니다.",
-				url: "https://demo.nlobby.com"
-			  });
-			  console.log("공유 성공");
-			} catch (e) {
-			  console.log("공유 실패");
-			}
-		  });
 	});
 
