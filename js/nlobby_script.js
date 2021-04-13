@@ -257,6 +257,8 @@
 				$('#counter').html(""+0+" / 1000");
 			}
 		});
+
+		// 업로드 이미지 정렬
 		$('.upload_img').owlCarousel({
 			loop:false,
 			autoplay:false,
@@ -295,5 +297,20 @@
 				$(this).parent().removeClass('focus');
 			});
 		});
+
+		var shareButton = document.querySelector('.share_ico');
+		
+		shareButton.addEventListener("click", async () => {
+			try {
+			  await navigator.share({
+				title: "엔로비 앱 방문신청 테스트",
+				text: "엔로비 앱 방문신청 테스트입니다.",
+				url: "https://demo.nlobby.com"
+			  });
+			  console.log("공유 성공");
+			} catch (e) {
+			  console.log("공유 실패");
+			}
+		  });
 	});
 
