@@ -750,26 +750,23 @@
 					</div>
 				</div>
 			</div>
-
-			<script>
-				var shareButton = document.querySelector('.share_ico');
-				
-				shareButton.addEventListener('click', event => {
-					if (navigator.share) {
-					navigator.share({
-						title: 'WebShare API Demo',
-						url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
-					}).then(() => {
-						console.log('Thanks for sharing!');
-					})
-					.catch(console.error);
-					} else {
-					// fallback
-					}
-				});
-			</script>
-			<style>
-			</style>
 		</div>
+		<script>
+			var shareButton = document.querySelector('.share_ico');
+			
+			shareButton.addEventListener('click', event => {
+				if (navigator.share) {
+				navigator.share({
+					title: 'WebShare API Demo',
+					url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+				}).then(() => {
+					console.log('Thanks for sharing!');
+				})
+				.catch(console.error);
+				} else {
+				// fallback
+				}
+			});
+		</script>
 	</body>
 </html>
