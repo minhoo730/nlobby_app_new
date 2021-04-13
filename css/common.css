@@ -129,7 +129,7 @@ h2.header_line{font-size:18px; margin-bottom:10px;}
 .black_line{background:#fff; border:1px solid #333; color:#333; font-weight:500;}
 .green_bg{background:#849c23; color:#fff;}
 #footer_btn{position:fixed; bottom:0; width:100%; left:0;}
-#complet_btn{cursor:unset; display:;}
+#complet_btn{cursor:unset; display:block;}
 #completed_btn{background:#849c23; color:#fff; display:none;}
 
 /* 폼 공통 */
@@ -252,7 +252,6 @@ label textarea{width:100%; height:250px; border:none; margin-top:5px; font-size:
 .login_form input{margin-top:15px; padding-right:0; padding-left:10px;}
 .login_form input.id{margin-top:0; padding-right:0;}
 .login_form input:disabled{border-bottom:none; display:none;}
-.login_success{}
 .btn_area{margin:20px 0; padding-bottom:15px; border-bottom:1px solid #e1e1e1;}
 .login_area .green_bg{display:none;}
 .google_login p{padding-bottom:10px; font-size:16px;}
