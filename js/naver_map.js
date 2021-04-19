@@ -67,6 +67,125 @@ $(document).ready(function () {
 		}
 	});
 
+	var infoWindow = new naver.maps.InfoWindow({
+		anchorSkew: true
+	});
+	  
+	map.setCursor('pointer');
+
+	function searchCoordinateToAddress(latlng) {
+		infoWindow.close();
+		naver.maps.Service.reverseGeocode({
+			coords: latlng,
+			orders: [
+				naver.maps.Service.OrderType.ADDR,
+				naver.maps.Service.OrderType.ROAD_ADDR
+			].join(',')
+		}, function(status, response) {
+		if (status === naver.maps.Service.Status.ERROR) {
+			if (!latlng) {
+				return alert('ReverseGeocode Error, Please check latlng');
+			}
+			if (latlng.toString) {
+				return alert('ReverseGeocode Error, latlng:' + latlng.toString());
+			}
+			if (latlng.x && latlng.y) {
+				return alert('ReverseGeocode Error, x:' + latlng.x + ', y:' + latlng.y);
+			}
+			return alert('ReverseGeocode Error, Please check latlng');
+		}
+		
+		var address = response.v2.address,
+			htmlAddresses = [];
+			if (address.jibunAddress !== '') {
+				htmlAddresses.push('[지번 주소] ' + address.jibunAddress);
+			}
+		
+			if (address.roadAddress !== '') {
+				htmlAddresses.push('[도로명 주소] ' + address.roadAddress);
+			}
+
+			infoWindow.setContent([
+				'<div style="padding:10px;min-width:200px;line-height:150%;">',
+				'<h4 style="margin-top:5px;">검색 좌표</h4><br />',
+					htmlAddresses.join('<br />'),
+				'</div>'
+			].join('\n'));
+		infoWindow.open(map, latlng);
+		});
+	}
+
+	function searchAddressToCoordinate(address) {
+		naver.maps.Service.geocode({
+			query: address
+		}, function(status, response) {
+			if (status === naver.maps.Service.Status.ERROR) {
+				if (!address) {
+					return alert('Geocode Error, Please check address');
+				}
+				return alert('Geocode Error, address:' + address);
+			}
+		  
+			if (response.v2.meta.totalCount === 0) {
+				return alert('No result.');
+			}
+		  
+			var htmlAddresses = [],
+				item = response.v2.addresses[0],
+				point = new naver.maps.Point(item.x, item.y);
+		
+			if (item.roadAddress) {
+				htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
+			}
+		  
+			if (item.jibunAddress) {
+				htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
+			}
+		  
+			if (item.englishAddress) {
+				htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
+			}
+		  
+			infoWindow.setContent([
+				'<div style="padding:10px;min-width:200px;line-height:150%;">',
+				'<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
+				htmlAddresses.join('<br />'),
+				'</div>'
+			].join('\n'));
+		  
+			map.setCenter(point);
+			infoWindow.open(map, point);
+		});
+	}
+
+	function initGeocoder() {
+		if (!map.isStyleMapReady) {
+			return;
+		}
+
+		map.addListener('click', function(e) {
+			searchCoordinateToAddress(e.coord);
+		});
+
+		$('#searchbox').on('keydown', function(e) {
+			var keyCode = e.which;
+
+			if (keyCode === 13) { // Enter Key
+				searchAddressToCoordinate($('#searchbox').val());
+			}
+		});
+
+		$('#submit').on('click', function(e) {
+			e.preventDefault();
+			searchAddressToCoordinate($('#searchbox').val());
+		});
+		//searchAddressToCoordinate('정자동 178-1');
+	}  
+
+	naver.maps.onJSContentLoaded = initGeocoder;
+	naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
+
+			
 	// var infowindow = new naver.maps.InfoWindow();
 	function onSuccessGeolocation(position) {
 		var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -88,54 +207,10 @@ $(document).ready(function () {
 			},
 			draggable: false
 		});
-
-
-		//customControl 객체 이용하기
-
-		// 현재 위치 아이콘
-		var customControl = new naver.maps.CustomControl(locationBtnHtml, {
-			position: naver.maps.Position.BOTTOM_RIGHT
-		});
-		customControl.setMap(map);
-		var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function () {
-			map.setCenter(new naver.maps.LatLng(position.coords.latitude, position.coords.longitude));
-		});
-
-		// 방문관리 페이지 접속 아이콘
-		var customControl2 = new naver.maps.CustomControl(linkBtnHtml, {
-			position: naver.maps.Position.BOTTOM_RIGHT
-		});
-		customControl2.setMap(map);
-		var domEventListener2 = naver.maps.Event.addDOMListener(customControl2.getElement(), 'click', function () {
-			map.setCenter(new naver.maps.LatLng(position.coords.latitude, position.coords.longitude));
-		});
-
-		// 엔로비 제외 고객사
-		var customControl3 = new naver.maps.CustomControl(redMarker, {
-			position: naver.maps.Position.RIGHT_CENTER
-		});
-		customControl3.setMap(map);
-		var domEventListener3 = naver.maps.Event.addDOMListener(customControl3.getElement(), 'click', function () {
-			$(".mapbridge").removeClass("on");
-			$(".nodata_com").slideDown(200);
-			$(".green_company").slideUp(200);
-			$(".gray_company").slideUp(200);
-			$(".nodata_com .close_btn").click(function () {
-				$(".nodata_com").slideUp(200);
-			});
-		});
 	}
-
 
 	function onErrorGeolocation() {
 		var center = map.getCenter();
-
-		/*
-		infowindow.setContent('<div style="padding:20px;">' +
-			'<h5 style="margin-bottom:5px;color:#f00;">Geolocation failed!</h5>'+ "latitude: "+ center.lat() +"<br />longitude: "+ center.lng() +'</div>');
-
-		//infowindow.open(map, center);
-		*/
 	}
 
 
@@ -148,6 +223,44 @@ $(document).ready(function () {
 		}
 	});
 
+		//customControl 객체 이용하기
+		// 현재 위치 아이콘
+		naver.maps.Event.once(map, 'init_stylemap', function() {
+			var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+				position: naver.maps.Position.BOTTOM_RIGHT
+			});
+			customControl.setMap(map);
+			
+			var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function () {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+				} else {
+					var center = map.getCenter();
+				}
+			});
+			
+			// 방문관리 페이지 접속 아이콘
+			var customControl2 = new naver.maps.CustomControl(linkBtnHtml, {
+				position: naver.maps.Position.BOTTOM_RIGHT
+			});
+			customControl2.setMap(map);
+
+			// 엔로비 제외 고객사
+			var customControl3 = new naver.maps.CustomControl(redMarker, {
+				position: naver.maps.Position.RIGHT_CENTER
+			});
+			customControl3.setMap(map);
+			var domEventListener3 = naver.maps.Event.addDOMListener(customControl3.getElement(), 'click', function () {
+				$(".mapbridge").removeClass("on");
+				$(".nodata_com").slideDown(200);
+				$(".green_company").slideUp(200);
+				$(".gray_company").slideUp(200);
+				$(".nodata_com .close_btn").click(function () {
+					$(".nodata_com").slideUp(200);
+				});
+			});
+		});
+	
 	/*
 	var redMarker = new naver.maps.Marker({
 		position: new naver.maps.LatLng(35.176266914354606, 129.1258162545757),

@@ -13,760 +13,745 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script type="text/javascript" src="../js/naver_map.js"></script>
 		<script type="text/javascript" src="../js/nlobby_script.js"></script>
-		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=do3rhd973l"></script>
+		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=do3rhd973l&submodules=geocoder"></script>
 		<script type="text/javascript" src="../js/accidentdeath.js"></script>
 		<script type="text/javascript" src="../js/MarkerClustering.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
+			<div class="modal_bg"></div>
+			<div id="map" class="map_main">
 			<!-- 플로팅 검색 영역 -->
-			<div id="flow_search" class="flow_search scroll">
-				<div class="search_area">
-					<div class="f_search">
-						<button class="back_btn" id="back_btn"> < </button>
-						<button class="txt_clear btn">지우기</button>
-						<button class="search_ico btn">검색아이콘</button>
-						<input type="search" name="keyword" class="place_form" id="searchbox" placeholder="주소 / 장소검색"/>
+				<div id="flow_search" class="flow_search scroll">
+					<div class="search_area">
+						<div class="f_search">
+							<button class="back_btn" id="back_btn"> < </button>
+							<button class="txt_clear btn">지우기</button>
+							<button id="submit" class="search_ico btn">주소 검색</button>
+							<input id="searchbox" type="search" class="place_form" placeholder="주소 / 장소검색">
+						</div>
 					</div>
 				</div>
-			</div>
-			<div id="flow_result" class="flow_result">
-				<div class="result_top">
-					<div class="f_result">
-						<button class="back_btn" id="back_btn"> < </button>
-						<p class="result_keyword">엔로비</p>
-						<button class="clear_btn btn">지우기</button>
+				<div id="flow_result" class="flow_result">
+					<div class="result_top">
+						<div class="f_result">
+							<button class="back_btn" id="back_btn"> < </button>
+							<p class="result_keyword">엔로비</p>
+							<button class="clear_btn btn">지우기</button>
+							<!--
+							<input type="text" name="keyword" class="place_form" id="searchbox" placeholder="검색결과"/>
+							-->
+						</div>
+					</div>
+				</div>
+				<div class="top_bg">
+					<div class="top_area">
+						<div class="t_search">
+							<button class="left_btn" id="left_btn">
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="line"></span>
+							</button>
+							<input type="text" class="place_form" placeholder="주소 / 장소검색"/>
+						</div>
+						<div class="t_alarm">
+							<button class="t_alarm_btn">알람버튼</button>
+						</div>
+						<!-- 알람메시지가 도착할 경우 on클래스 활성화 -->
 						<!--
-						<input type="text" name="keyword" class="place_form" id="searchbox" placeholder="검색결과"/>
+						<div class="t_alarm on">
+							<button class="t_alarm_btn">알람버튼</button>
+						</div>
 						-->
 					</div>
 				</div>
-			</div>
-			<div class="top_bg">
-				<div class="top_area">
-					<div class="t_search">
-						<button class="left_btn" id="left_btn">
-							<span class="line"></span>
-							<span class="line"></span>
-							<span class="line"></span>
-						</button>
-						<input type="text" class="place_form" placeholder="주소 / 장소검색"/>
-					</div>
-					<div class="t_alarm">
-						<button class="t_alarm_btn">알람버튼</button>
-					</div>
-					<!-- 알람메시지가 도착할 경우 on클래스 활성화 -->
-					<!--
-					<div class="t_alarm on">
-						<button class="t_alarm_btn">알람버튼</button>
-					</div>
-					-->
-				</div>
-			</div>
-			<div class="content_ico">
-				<!--
-				<p class="location_ico"><a href="#">현재위치 아이콘</a></p>
-				<p class="adm_ico"><a href="https://demo.nlobby.com/dash">방문관리 아이콘</a></p>
-				-->
-			</div>
-			<div class="bot_bg">
-				<ul>
-					<li class="m_location"><a href="#tab1">주변</a></li>
-					<li class="m_bookmark"><a href="#tab2">즐겨찾기</a></li>
-					<li class="m_latest"><a href="#tab3">최근</a></li>
-				</ul>
-			</div>
-			<div class="tab_con">
-				<div class="bot_list list_location" id="tab1">
-					<h4 class="bot_title">주변<span class="bot_sub">현재 가까운 곳에 있습니다.</span></h4>
-					<button class="list_close">X</button>
-					<ul class="scroll">
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico on">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-				<div class="bot_list list_bookmark" id="tab2">
-					<h4 class="bot_title">즐겨찾기</h4>
-					<button class="list_close">X</button>
-					<ul class="scroll">
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico on">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-				<div class="bot_list list_latest" id="tab3">
-					<h4 class="bot_title">최근</h4>
-					<button class="list_close">X</button>
-					<ul class="scroll">
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico on">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-						<li>
-							<a href="#">
-								GS건설 본사<br>
-								<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
-							</a>
-							<div class="list_btn">
-								<p class="bookmark_ico">즐겨찾기</p>
-								<p class="map_move_ico">위치이동</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="alarm_area">
-				<div class="alarm_header">
-					<h1 class="title_line"><a href="#" class="back_link"> < </a>알림</h1>
-				</div>
-				<div class="alarm_content">
+				<div class="bot_bg">
 					<ul>
-						<li class="alarm">
-							<a href="#">
-								<span class="data">2021.01.25 / 09:00</span>
-								<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
-							</a>
-							<button class="alarm_del">알람삭제</button>
+						<li class="m_location"><a href="#tab1">주변</a></li>
+						<li class="m_bookmark"><a href="#tab2">즐겨찾기</a></li>
+						<li class="m_latest"><a href="#tab3">최근</a></li>
+					</ul>
+				</div>
+				<div class="tab_con">
+					<div class="bot_list list_location" id="tab1">
+						<h4 class="bot_title">주변<span class="bot_sub">현재 가까운 곳에 있습니다.</span></h4>
+						<button class="list_close">X</button>
+						<ul class="scroll">
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico on">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+	
+						</ul>
+					</div>
+					<div class="bot_list list_bookmark" id="tab2">
+						<h4 class="bot_title">즐겨찾기</h4>
+						<button class="list_close">X</button>
+						<ul class="scroll">
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico on">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+	
+						</ul>
+					</div>
+					<div class="bot_list list_latest" id="tab3">
+						<h4 class="bot_title">최근</h4>
+						<button class="list_close">X</button>
+						<ul class="scroll">
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico on">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									GS건설 본사<br>
+									<span class="list_address">서울특별시 강남구 논현로 508 GS타워</span>
+								</a>
+								<div class="list_btn">
+									<p class="bookmark_ico">즐겨찾기</p>
+									<p class="map_move_ico">위치이동</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="alarm_area">
+					<div class="alarm_header">
+						<h1 class="title_line"><a href="#" class="back_link"> < </a>알림</h1>
+					</div>
+					<div class="alarm_content">
+						<ul>
+							<li class="alarm">
+								<a href="#">
+									<span class="data">2021.01.25 / 09:00</span>
+									<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
+								</a>
+								<button class="alarm_del">알람삭제</button>
+							</li>
+							<li class="alarm on">
+								<a href="#">
+									<span class="data">2021.01.25 / 09:00</span>
+									<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
+								</a>
+								<button class="alarm_del">알람삭제</button>
+							</li>
+							<li class="alarm on">
+								<a href="#">
+									<span class="data">2021.01.25 / 09:00</span>
+									<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
+								</a>
+								<button class="alarm_del">알람삭제</button>
+							</li>
+							<li class="alarm on">
+								<a href="#">
+									<span class="data">2021.01.25 / 09:00</span>
+									<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
+								</a>
+								<button class="alarm_del">알람삭제</button>
+							</li>
+							<li class="alarm on">
+								<a href="#">
+									<span class="data">2021.01.25 / 09:00</span>
+									<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
+								</a>
+								<button class="alarm_del">알람삭제</button>
+							</li>
+							<li class="alarm on">
+								<a href="#">
+									<span class="data">2021.01.25 / 09:00</span>
+									<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
+								</a>
+								<button class="alarm_del">알람삭제</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="left_area">
+					<div class="left_scroll">
+						<div class="user_info">
+							<h4 class="user_name">사용자</h4>
+							<button class="close_btn">X</button>
+							<p class="user_company">엔로비<span class="user_mb">임직원</span></p>
+							<div class="user_ep">
+								<p class="user_email">nim730@nlobby.com</p>
+								<p class="user_phone">010-1234-1234</span></p>
+							</div>
+						</div>
+						<div class="menu_list">
+							<div class="nlobby_banner">
+								<a href="#"></a>
+							</div>
+							<div class="left_menu scroll">
+								<div class="common_menu">
+									<h2 class="menu_title">방문신청</h2>
+									<ul>
+										<li class="visit_seaech"><a href="#">방문신청</a></li>
+									</ul>
+								</div>
+								<div class="user_menu">
+									<h2 class="menu_title">사용자 메뉴</h2>
+									<ul>
+										<li><a href="company_find.html">임직원 등록<br><span class="summary">엔로비 고객사 임직원 전용</span></a></li>
+										<li><a href="company_find.html">회사 변경<br><span class="summary">소속회사가 변경되었나요?</span></a></li>
+										<li><a href="#">공유하기<br><span class="summary">방문하시는 분에게 정보를 공유하세요.</span></a></li>
+										<!--
+										<li><a href="#">방문신청 확인<br><span class="summary">현재 방문신청 진행상황이 궁금하신가요?</span></a></li>
+										-->
+										<li><a href="https://demo.nlobby.com/dash">방문관리 페이지<br><span class="summary">방문신청 승인 및 취소</span></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="left_bot">
+							<div class="left_bot_menu">
+								<ul>
+									<li class="guide_ico"><a href="#">이용안내</a></li>
+									<li class="home_ico"><a href="http://nlobby.com">홈페이지</a></li>
+									<li class="custom_ico"><a href="cs_list.html">고객센터</a></li>
+									<li class="set_ico"><a href="mypage.html">설정</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				<!-- 각 위치별 팝업 영역 -->
+				<!-- 엔로비 고객사 팝업 -->
+				<div class="green_company company_pop">
+					<button class="close_btn">X</button>
+					<ul class="map_company_area scroll">
+						<li>
+							<div class="pop_list_area">
+								<div class="list_img_area">
+									<div class="list_img">
+										<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
+									</div>
+								</div>
+								<div class="place_list">
+									<div class="list_title">
+										<h4 class="place_name">엔로비 부산본사</h4>
+										<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+										<div class="pop_btn">
+											<div class="btn_ico">
+												<button class="bookmark_ico">북마크 ICO</button>
+												<button class="share_ico" onclick="snsShare('title','url')">공유 ICO</button>
+											</div>
+											<div class="txt_btn">
+												<p class="reserve_btn"><a href="#">방문신청</a></p>
+												<p class="modify_btn"><a href="place_mod.html">수정</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</li>
-						<li class="alarm on">
-							<a href="#">
-								<span class="data">2021.01.25 / 09:00</span>
-								<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
-							</a>
-							<button class="alarm_del">알람삭제</button>
+						<li>
+							<div class="pop_list_area">
+								<div class="list_img_area">
+									<div class="list_img">
+										<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
+									</div>
+								</div>
+								<div class="place_list">
+									<div class="list_title">
+										<h4 class="place_name">엔로비 부산본사</h4>
+										<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+										<div class="pop_btn">
+											<div class="btn_ico">
+												<button class="bookmark_ico">북마크 ICO</button>
+												<button class="share_ico" onclick="snsShare('title','url')">공유 ICO</button>
+											</div>
+											<div class="txt_btn">
+												<p class="reserve_btn"><a href="#">방문신청</a></p>
+												<p class="modify_btn"><a href="place_mod.html">수정</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</li>
-						<li class="alarm on">
-							<a href="#">
-								<span class="data">2021.01.25 / 09:00</span>
-								<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
-							</a>
-							<button class="alarm_del">알람삭제</button>
-						</li>
-						<li class="alarm on">
-							<a href="#">
-								<span class="data">2021.01.25 / 09:00</span>
-								<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
-							</a>
-							<button class="alarm_del">알람삭제</button>
-						</li>
-						<li class="alarm on">
-							<a href="#">
-								<span class="data">2021.01.25 / 09:00</span>
-								<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
-							</a>
-							<button class="alarm_del">알람삭제</button>
-						</li>
-						<li class="alarm on">
-							<a href="#">
-								<span class="data">2021.01.25 / 09:00</span>
-								<span class="alarm_txt">이민호님 <b class="green">GS칼텍스</b> 방문예약되었습니다. 자세한 내용은 터치해서 확인 해 주세요.</span>
-							</a>
-							<button class="alarm_del">알람삭제</button>
+						<li>
+							<div class="pop_list_area">
+								<div class="list_img_area">
+									<div class="list_img">
+										<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
+									</div>
+								</div>
+								<div class="place_list">
+									<div class="list_title">
+										<h4 class="place_name">엔로비 부산본사</h4>
+										<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+										<div class="pop_btn">
+											<div class="btn_ico">
+												<button class="bookmark_ico">북마크 ICO</button>
+												<button class="share_ico" onclick="snsShare('title','url')">공유 ICO</button>
+											</div>
+											<div class="txt_btn">
+												<p class="reserve_btn"><a href="#">방문신청</a></p>
+												<p class="modify_btn"><a href="place_mod.html">수정</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</li>
 					</ul>
 				</div>
-			</div>
-			<div class="left_area">
-				<div class="left_scroll">
-					<div class="user_info">
-						<h4 class="user_name">사용자</h4>
-						<button class="close_btn">X</button>
-						<p class="user_company">엔로비<span class="user_mb">임직원</span></p>
-						<div class="user_ep">
-							<p class="user_email">nim730@nlobby.com</p>
-							<p class="user_phone">010-1234-1234</span></p>
-						</div>
-					</div>
-					<div class="menu_list">
-						<div class="nlobby_banner">
-							<a href="#"></a>
-						</div>
-						<div class="left_menu scroll">
-							<div class="common_menu">
-								<h2 class="menu_title">방문신청</h2>
-								<ul>
-									<li class="visit_seaech"><a href="#">방문신청</a></li>
-								</ul>
+				<!-- 엔로비 비 고객사 팝업 -->
+				<div class="gray_company company_pop">
+					<button class="close_btn">X</button>
+					<ul class="map_company_area scroll">
+						<li>
+							<div class="pop_list_area">
+								<div class="place_list">
+									<div class="list_title">
+										<h4 class="place_name">엔로비 부산본사</h4>
+										<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+										<div class="pop_btn">
+											<div class="btn_ico">
+												<button class="bookmark_ico">북마크 ICO</button>
+												<button class="share_ico" onclick="snsShare('title','url')">공유 ICO</button>
+											</div>
+											<div class="txt_btn">
+												<p class="reserve_btn"><a href="#">방문신청</a></p>
+												<p class="modify_btn"><a href="place_mod.html">수정</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="user_menu">
-								<h2 class="menu_title">사용자 메뉴</h2>
-								<ul>
-									<li><a href="company_find.html">임직원 등록<br><span class="summary">엔로비 고객사 임직원 전용</span></a></li>
-									<li><a href="company_find.html">회사 변경<br><span class="summary">소속회사가 변경되었나요?</span></a></li>
-									<li><a href="#">공유하기<br><span class="summary">방문하시는 분에게 정보를 공유하세요.</span></a></li>
-									<!--
-									<li><a href="#">방문신청 확인<br><span class="summary">현재 방문신청 진행상황이 궁금하신가요?</span></a></li>
-									-->
-									<li><a href="https://demo.nlobby.com/dash">방문관리 페이지<br><span class="summary">방문신청 승인 및 취소</span></a></li>
-								</ul>
+						</li>
+						<li>
+							<div class="pop_list_area">
+								<div class="place_list">
+									<div class="list_title">
+										<h4 class="place_name">엔로비 부산본사</h4>
+										<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+										<div class="pop_btn">
+											<div class="btn_ico">
+												<button class="bookmark_ico">북마크 ICO</button>
+												<button class="share_ico" onclick="snsShare('title','url')">공유 ICO</button>
+											</div>
+											<div class="txt_btn">
+												<p class="reserve_btn"><a href="#">방문신청</a></p>
+												<p class="modify_btn"><a href="place_mod.html">수정</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="left_bot">
-						<div class="left_bot_menu">
-							<ul>
-								<li class="guide_ico"><a href="#">이용안내</a></li>
-								<li class="home_ico"><a href="http://nlobby.com">홈페이지</a></li>
-								<li class="custom_ico"><a href="cs_list.html">고객센터</a></li>
-								<li class="set_ico"><a href="mypage.html">설정</a></li>
-							</ul>
+						</li>
+						<li>
+							<div class="pop_list_area">
+								<div class="place_list">
+									<div class="list_title">
+										<h4 class="place_name">엔로비 부산본사</h4>
+										<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+										<div class="pop_btn">
+											<div class="btn_ico">
+												<button class="bookmark_ico">북마크 ICO</button>
+												<button class="share_ico" onclick="snsShare('title','url')">공유 ICO</button>
+											</div>
+											<div class="txt_btn">
+												<p class="reserve_btn"><a href="#">방문신청</a></p>
+												<p class="modify_btn"><a href="place_mod.html">수정</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- 지역 정보가 없는 팝업 -->
+				<div class="nodata_com company_pop">
+					<button class="close_btn">X</button>
+					<div class="list_title">
+						<h4 class="place_name">엔로비 부산본사</h4>
+						<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
+						<div class="place_plus">
+							<p class="place_add_btn"><a href="place_add.html">방문장소 만들기</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="modal_bg"></div>
-			<div id="map" class="map_main"></div>
-			<!-- 각 위치별 팝업 영역 -->
-			<!-- 엔로비 고객사 팝업 -->
-			<div class="green_company company_pop">
-				<button class="close_btn">X</button>
-				<ul class="map_company_area scroll">
-					<li>
-						<div class="pop_list_area">
-							<div class="list_img_area">
-								<div class="list_img">
-									<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
-								</div>
-							</div>
-							<div class="place_list">
-								<div class="list_title">
-									<h4 class="place_name">엔로비 부산본사</h4>
-									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-									<div class="pop_btn">
-										<div class="btn_ico">
-											<button class="bookmark_ico">북마크 ICO</button>
-											<button class="share_ico">공유 ICO</button>
-										</div>
-										<div class="txt_btn">
-											<p class="reserve_btn"><a href="#">방문신청</a></p>
-											<p class="modify_btn"><a href="place_mod.html">수정</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="pop_list_area">
-							<div class="list_img_area">
-								<div class="list_img">
-									<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
-								</div>
-							</div>
-							<div class="place_list">
-								<div class="list_title">
-									<h4 class="place_name">엔로비 부산본사</h4>
-									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-									<div class="pop_btn">
-										<div class="btn_ico">
-											<button class="bookmark_ico">북마크 ICO</button>
-											<button class="share_ico">공유 ICO</button>
-										</div>
-										<div class="txt_btn">
-											<p class="reserve_btn"><a href="#">방문신청</a></p>
-											<p class="modify_btn"><a href="place_mod.html">수정</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="pop_list_area">
-							<div class="list_img_area">
-								<div class="list_img">
-									<p><img src="../img/drawable-xxxhdpi/splashy_logo.png"/></p>
-								</div>
-							</div>
-							<div class="place_list">
-								<div class="list_title">
-									<h4 class="place_name">엔로비 부산본사</h4>
-									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-									<div class="pop_btn">
-										<div class="btn_ico">
-											<button class="bookmark_ico">북마크 ICO</button>
-											<button class="share_ico">공유 ICO</button>
-										</div>
-										<div class="txt_btn">
-											<p class="reserve_btn"><a href="#">방문신청</a></p>
-											<p class="modify_btn"><a href="place_mod.html">수정</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
 
-			<!-- 엔로비 비 고객사 팝업 -->
-			<div class="gray_company company_pop">
-				<button class="close_btn">X</button>
-				<ul class="map_company_area scroll">
-					<li>
-						<div class="pop_list_area">
-							<div class="place_list">
-								<div class="list_title">
-									<h4 class="place_name">엔로비 부산본사</h4>
-									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-									<div class="pop_btn">
-										<div class="btn_ico">
-											<button class="bookmark_ico">북마크 ICO</button>
-											<button class="share_ico">공유 ICO</button>
-										</div>
-										<div class="txt_btn">
-											<p class="reserve_btn"><a href="#">방문신청</a></p>
-											<p class="modify_btn"><a href="place_mod.html">수정</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="pop_list_area">
-							<div class="place_list">
-								<div class="list_title">
-									<h4 class="place_name">엔로비 부산본사</h4>
-									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-									<div class="pop_btn">
-										<div class="btn_ico">
-											<button class="bookmark_ico">북마크 ICO</button>
-											<button class="share_ico">공유 ICO</button>
-										</div>
-										<div class="txt_btn">
-											<p class="reserve_btn"><a href="#">방문신청</a></p>
-											<p class="modify_btn"><a href="place_mod.html">수정</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="pop_list_area">
-							<div class="place_list">
-								<div class="list_title">
-									<h4 class="place_name">엔로비 부산본사</h4>
-									<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-									<div class="pop_btn">
-										<div class="btn_ico">
-											<button class="bookmark_ico">북마크 ICO</button>
-											<button class="share_ico">공유 ICO</button>
-										</div>
-										<div class="txt_btn">
-											<p class="reserve_btn"><a href="#">방문신청</a></p>
-											<p class="modify_btn"><a href="place_mod.html">수정</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-
-			<!-- 지역 정보가 없는 팝업 -->
-			<div class="nodata_com company_pop">
-				<button class="close_btn">X</button>
-				<div class="list_title">
-					<h4 class="place_name">엔로비 부산본사</h4>
-					<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
-					<div class="place_plus">
-						<p class="place_add_btn"><a href="place_add.html">방문장소 만들기</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script>
-			var shareButton = document.querySelector('.share_ico');
-			
-			shareButton.addEventListener('click', event => {
-				if (navigator.share) {
-				navigator.share({
-					title: 'WebShare API Demo',
-					url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
-				}).then(() => {
-					console.log('Thanks for sharing!');
-				})
-				.catch(console.error);
-				} else {
-				// fallback
+			<script>
+				function snsShare(title, url){
+					if(navigator.share){
+						navigator.share({title: title, url: url});
+					}else alert('지원하지 않는 브라우저입니다.');
 				}
-			});
-		</script>
+			</script>
+		</div>
 	</body>
 </html>
