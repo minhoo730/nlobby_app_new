@@ -19,9 +19,18 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<div class="modal_bg"></div>
 			<div id="map" class="map_main">
-			<!-- 플로팅 검색 영역 -->
+				<!-- 이용방법 -->
+				<div id="user_face">
+					<div class="face_masssge">
+						<p class="top_face face1">좌측 상단버튼을 터치하시면 좌측에서 메뉴가 펼쳐집니다.</p>
+						<p class="top_face face2">알림내용은 여기서 확인하세요!</p>
+						<p class="bot_face face3">검색 또는 주변, 즐겨찾기, 최근 탭을 터치하면 확인할수 있어요.</p>
+						<p class="bot_face face4">방문관리페이지에 바로 접속되어 방문객 승인, 관리를 할수있어요.</p>
+					</div>
+					<button class="btn face_close">닫기</button>
+				</div>	
+				<!-- 플로팅 검색 영역 -->
 				<div id="flow_search" class="flow_search scroll">
 					<div class="search_area">
 						<div class="f_search">
@@ -733,9 +742,9 @@
 					</ul>
 				</div>
 				<!-- 지역 정보가 없는 팝업 -->
-				<div class="nodata_com company_pop">
+				<div class="nodata_com company_pop" id="nodata_com">
 					<button class="close_btn">X</button>
-					<div class="list_title">
+					<div class="list_title" id="list_title">
 						<h4 class="place_name">엔로비 부산본사</h4>
 						<p class="place_address">해운대구 센텀동로 99 벽산E센텀클래스원 1119호</p>
 						<div class="place_plus">
@@ -743,6 +752,57 @@
 						</div>
 					</div>
 				</div>
+				<div class="search_input company_pop">
+					<button class="close_btn">X</button>
+					<div class="tab_filter">
+						<ul>
+							<li class="on"><a href="#">내위치 중심</a></li>
+							<li><a href="#">정확도 순</a></li>
+						</ul>
+					</div>
+					<div class="result">
+						<ul class="scroll">
+							<li>
+								<a href="#">
+									엔로비 본사<br>
+									<span class="search_address">부산광역시 해운대구 센텀동로 99</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									엔로비 본사<br>
+									<span class="search_address">부산광역시 해운대구 센텀동로 99</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									엔로비 본사<br>
+									<span class="search_address">부산광역시 해운대구 센텀동로 99</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									엔로비 본사<br>
+									<span class="search_address">부산광역시 해운대구 센텀동로 99</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									엔로비 본사<br>
+									<span class="search_address">부산광역시 해운대구 센텀동로 99</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									엔로비 본사<br>
+									<span class="search_address">부산광역시 해운대구 센텀동로 99</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="modal_bg"></div>
 			</div>
 
 			<script>

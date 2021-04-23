@@ -129,9 +129,25 @@
 			$(".nodata_com").slideUp(200);
 			$(".green_company").slideUp(200);
 		});
+
 		$(".gray_company .close_btn").click(function(){
 			$(".gray_nlobby, .gray_company").removeClass("on");
 			$(".gray_company").slideUp(200);
+		});
+
+		$(".result_tooltip").on("click",function(){
+			$(".result_tooltip").css("display","none");
+			$(".flow_result").css("display","none");
+			$(".gray_nlobby").css("display","block");
+			$(".gray_nlobby, .gray_company").addClass("on");
+			$(".search_input").slideUp(200);
+			$(".gray_company").slideDown(200);
+			$(".gray_company ul li").css("display","none");
+			$(".gray_company ul li:first-child").css("display","block");
+		})
+
+		$(".bookmark_ico").on("click", function(){
+			$(this).toggleClass("on");
 		});
 
 		$(".place_form").on('click',function(){
@@ -165,7 +181,7 @@
 			$(".result_tooltip").css("display","none");
 		});
 
-		$(".search_ico").on("click",function(){
+		$("#submit").on("click",function(){
 			$("#flow_search").css("display","none");
 			$("#flow_result").css("display","block");
 			$(".result_top").css("display","block");
@@ -198,6 +214,18 @@
 			$(".mapbridge").css('display','block');
 			$(".result_top").css("display","none");
 			$(".search_input").slideUp(200);
+		});
+
+		$(".guide_ico a").on("click",function(){
+			$('.modal_bg').fadeIn(200); 
+			$('#user_face').css('display','block');
+			$('.left_area').animate({
+				left: '-' + 260 + 'px'
+			},200);
+		});
+		$("#user_face .face_close").on("click",function(){
+			$('.modal_bg').fadeOut(0); 
+			$('#user_face').css('display','none');
 		});
 
 

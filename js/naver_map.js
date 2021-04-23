@@ -11,8 +11,14 @@ $(document).ready(function () {
 		disableKineticPan: false,
 		mapDataControl: false,
 		clickable: true,
-		mapTypeId: naver.maps.MapTypeId.NORMAL
+		mapTypes: new naver.maps.MapTypeRegistry({
+			'normal': naver.maps.NaverStyleMapTypeOptions.getNormalMap({
+				overlayType: 'bg.ol.ts.lko'
+			})
+		})
 	});
+
+	/*
 	var markers = [],
 		data = accidentDeath.searchResult.accidentDeath;
 
@@ -66,15 +72,13 @@ $(document).ready(function () {
 			$(clusterMarker.getElement()).find('div:first-child').text(count);
 		}
 	});
-
-	var infoWindow = new naver.maps.InfoWindow({
-		anchorSkew: true
-	});
+	*/
+	//var infoWindow = new naver.maps.InfoWindow({});
 	  
-	map.setCursor('pointer');
+	var nodataAddress = document.getElementById("nodata_com");
 
 	function searchCoordinateToAddress(latlng) {
-		infoWindow.close();
+		//infoWindow.close();
 		naver.maps.Service.reverseGeocode({
 			coords: latlng,
 			orders: [
@@ -105,6 +109,18 @@ $(document).ready(function () {
 				htmlAddresses.push('[도로명 주소] ' + address.roadAddress);
 			}
 
+			nodataAddress.innerHTML = 
+				'<button class="close_btn">X</button>'+
+				'<div class="list_title" id="list_title">'+
+					'<h4 class="place_name">바뀜 부산본사</h4>'+
+					'<p class="place_address">'+htmlAddresses+'</p>'+
+					'<div class="place_plus">'+
+						'<p class="place_add_btn">'+
+							'<a href="place_add.html">방문장소 만들기</a>'+
+						'</p>'+
+					'</div>'+
+				'</div>';
+			/*
 			infoWindow.setContent([
 				'<div style="padding:10px;min-width:200px;line-height:150%;">',
 				'<h4 style="margin-top:5px;">검색 좌표</h4><br />',
@@ -112,6 +128,7 @@ $(document).ready(function () {
 				'</div>'
 			].join('\n'));
 		infoWindow.open(map, latlng);
+			*/
 		});
 	}
 
@@ -145,14 +162,25 @@ $(document).ready(function () {
 			if (item.englishAddress) {
 				htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
 			}
-		  
+			nodataAddress.innerHTML = 
+				'<button class="close_btn">X</button>'+
+				'<div class="list_title" id="list_title">'+
+					'<h4 class="place_name">바뀜 부산본사</h4>'+
+					'<p class="place_address">'+htmlAddresses+'</p>'+
+					'<div class="place_plus">'+
+						'<p class="place_add_btn">'+
+							'<a href="place_add.html">방문장소 만들기</a>'+
+						'</p>'+
+					'</div>'+
+				'</div>';
+			/*
 			infoWindow.setContent([
 				'<div style="padding:10px;min-width:200px;line-height:150%;">',
 				'<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
 				htmlAddresses.join('<br />'),
 				'</div>'
 			].join('\n'));
-		  
+			*/
 			map.setCenter(point);
 			infoWindow.open(map, point);
 		});
@@ -191,6 +219,7 @@ $(document).ready(function () {
 		var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);
 		map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
 		map.setZoom(16); // 지도의 줌 레벨을 변경합니다.
+
 		var myLocation = new naver.maps.Marker({
 			position: location,
 			map: map,
