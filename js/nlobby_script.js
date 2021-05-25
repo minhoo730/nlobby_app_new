@@ -325,5 +325,5 @@
 				$(this).parent().removeClass('focus');
 			});
 		});
-	});
 
+});

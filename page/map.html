@@ -13,7 +13,7 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script type="text/javascript" src="../js/naver_map.js"></script>
 		<script type="text/javascript" src="../js/nlobby_script.js"></script>
-		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=do3rhd973l&submodules=geocoder"></script>
+		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e4d4dde1f5&submodules=geocoder"></script>
 		<script type="text/javascript" src="../js/accidentdeath.js"></script>
 		<script type="text/javascript" src="../js/MarkerClustering.js"></script>
 	</head>
@@ -63,9 +63,11 @@
 							</button>
 							<input type="text" class="place_form" placeholder="주소 / 장소검색"/>
 						</div>
+						<!--
 						<div class="t_alarm">
 							<button class="t_alarm_btn">알람버튼</button>
 						</div>
+						-->
 						<!-- 알람메시지가 도착할 경우 on클래스 활성화 -->
 						<!--
 						<div class="t_alarm on">
@@ -549,7 +551,7 @@
 						<div class="user_info">
 							<h4 class="user_name">사용자</h4>
 							<button class="close_btn">X</button>
-							<p class="user_company">엔로비<span class="user_mb">임직원</span></p>
+							<!-- <p class="user_company">엔로비<span class="user_mb">임직원</span></p> -->
 							<div class="user_ep">
 								<p class="user_email">nim730@nlobby.com</p>
 								<p class="user_phone">010-1234-1234</span></p>
@@ -561,23 +563,24 @@
 							</div>
 							<div class="left_menu scroll">
 								<div class="common_menu">
-									<h2 class="menu_title">방문신청</h2>
+									<h2 class="menu_title">방문장소</h2>
 									<ul>
 										<li class="visit_seaech"><a href="#">방문신청</a></li>
+										<li><a href="#">공유하기<br><span class="summary">방문하시는 분에게 정보를 공유하세요.</span></a></li>
 									</ul>
 								</div>
+								<!--
 								<div class="user_menu">
 									<h2 class="menu_title">사용자 메뉴</h2>
 									<ul>
 										<li><a href="company_find.html">임직원 등록<br><span class="summary">엔로비 고객사 임직원 전용</span></a></li>
 										<li><a href="company_find.html">회사 변경<br><span class="summary">소속회사가 변경되었나요?</span></a></li>
 										<li><a href="#">공유하기<br><span class="summary">방문하시는 분에게 정보를 공유하세요.</span></a></li>
-										<!--
 										<li><a href="#">방문신청 확인<br><span class="summary">현재 방문신청 진행상황이 궁금하신가요?</span></a></li>
-										-->
 										<li><a href="https://demo.nlobby.com/dash">방문관리 페이지<br><span class="summary">방문신청 승인 및 취소</span></a></li>
 									</ul>
 								</div>
+								-->
 							</div>
 						</div>
 						<div class="left_bot">
@@ -801,9 +804,76 @@
 						</ul>
 					</div>
 				</div>
-
 				<div class="modal_bg"></div>
 			</div>
+
+			<div id="share_area">
+				<div class="share-dialog">
+				<header>
+					<h3 class="dialog-title">Share this pen</h3>
+					<button class="close-button"><svg><use href="#close"></use></svg></button>
+				</header>
+				<div class="targets">
+					<a class="button">
+					<svg>
+						<use href="#facebook"></use>
+					</svg>
+					<span>Facebook</span>
+					</a>
+					
+					<a class="button">
+					<svg>
+						<use href="#twitter"></use>
+					</svg>
+					<span>Twitter</span>
+					</a>
+					
+					<a class="button">
+					<svg>
+						<use href="#linkedin"></use>
+					</svg>
+					<span>LinkedIn</span>
+					</a>
+					
+					<a class="button">
+					<svg>
+						<use href="#email"></use>
+					</svg>
+					<span>Email</span>
+					</a>
+				</div>
+				<div class="link">
+					<div class="pen-url">https://codepen.io/ayoisaiah/pen/YbNazJ</div>
+					<button class="copy-link">Copy Link</button>
+				</div>
+				</div>
+
+				<button class="share-button" type="button" title="Share this article">
+				<svg>
+					<use href="#share-icon"></use>
+				</svg>
+				<span>Share</span>
+				</button>
+
+				<svg class="hidden">
+				<defs>
+					<symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
+					
+					<symbol id="facebook" viewBox="0 0 24 24" fill="#3b5998" stroke="#3b5998" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></symbol>
+					
+					<symbol id="twitter" viewBox="0 0 24 24" fill="#1da1f2" stroke="#1da1f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></symbol>
+					
+					<symbol id="email" viewBox="0 0 24 24" fill="#777" stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></symbol>
+					
+					<symbol id="linkedin" viewBox="0 0 24 24" fill="#0077B5" stroke="#0077B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></symbol>
+					
+					<symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></symbol>
+				</defs>
+				</svg>
+			</div>
+
+
+
 
 			<script>
 				function snsShare(title, url){
@@ -811,6 +881,32 @@
 						navigator.share({title: title, url: url});
 					}else alert('지원하지 않는 브라우저입니다.');
 				}
+
+				// 공유 스크립트
+
+				const shareButton = document.querySelector('.share-button');
+				const shareDialog = document.querySelector('.share-dialog');
+				const closeButton = document.querySelector('.close-button');
+
+				shareButton.addEventListener('click', event => {
+				if (navigator.share) { 
+				navigator.share({
+					title: 'WebShare API Demo',
+					url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+					}).then(() => {
+					console.log('Thanks for sharing!');
+					})
+					.catch(console.error);
+					} else {
+						shareDialog.classList.add('is-open');
+					}
+				});
+
+				closeButton.addEventListener('click', event => {
+				shareDialog.classList.remove('is-open');
+				});
+
+
 			</script>
 		</div>
 	</body>
