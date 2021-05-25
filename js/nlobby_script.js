@@ -325,5 +325,4 @@
 				$(this).parent().removeClass('focus');
 			});
 		});
-
 });
