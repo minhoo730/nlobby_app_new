@@ -856,6 +856,15 @@
 			// 		})
 			// 	}
 			// });
+
+			$(".more_ico").click(function(){
+				navigator.share({
+					title: 'WebShare API Demo',
+					url: '' // 공유링크
+				}).then(() => {
+				console.log('Thanks for sharing!');
+				}).catch(console.error);
+			})
 			$(".share-button").click(function(){
 				$(".share-dialog").slideDown(200);
 				$(".link .copy-link").click(function() {
