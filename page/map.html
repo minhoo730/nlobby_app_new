@@ -817,7 +817,7 @@
 						<span class="sns_name">카카오톡</span>
 					</a>
 					
-					<a class="sns_btn mms_ico" onclick="location.href = 'sms:' +(checkMobile() == 'ios' ? '&' : '?') + 'body='+ message;">
+					<a class="sns_btn mms_ico" onclick="chklOS();">
 						<span class="sns_name">메시지</span>
 					</a>					
 					<a class="sns_btn email_ico" href="#">
@@ -876,7 +876,10 @@
 				}else alert('지원하지 않는 브라우저입니다.');
 			}
 
-			const message = '테스트'
+			const message = '테스트';
+			function chklOS(){
+				location.href = 'sms:' +(checkMobile() == 'ios' ? '&' : '?') + 'body='+ message;
+			}
 		</script>
 
 		<!-- 카카오톡 호출 -->
