@@ -16,6 +16,7 @@
 		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e4d4dde1f5&submodules=geocoder"></script>
 		<script type="text/javascript" src="../js/accidentdeath.js"></script>
 		<script type="text/javascript" src="../js/MarkerClustering.js"></script>
+		<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -812,7 +813,7 @@
 					<button class="close_btn"><a href="#close">X</a></button>
 				</div>
 				<div class="targets">
-					<a class="sns_btn kakao_ico" href="#">
+					<a class="sns_btn kakao_ico" onclick="sendLinkCustom();">
 						<span class="sns_name">카카오톡</span>
 					</a>
 					
@@ -852,12 +853,11 @@
 						const success = document.execCommand("copy");
 						$(".link .pen-url").attr("type","text")
 						if(success){
-							alert("링크복사");
+							alert("링크가 복사되었습니다.\n원하시는 곳에서 붙여넣기 하세요.");
 						}
 					})
 				}
 			});
-
 			$(".share_title .close_btn").click(function(){
 				$(".share-dialog").slideUp(200);
 			});
@@ -867,6 +867,14 @@
 				}else alert('지원하지 않는 브라우저입니다.');
 			}
 		</script>
-	</div>
+		<script type="text/javascript">
+			function sendLinkCustom() {
+				Kakao.init("25e67e36915b01ec3490b2f93c45dfc5");
+				Kakao.Link.sendCustom({
+					templateId: 54266 
+				});
+			}
+		</script>
+		</div>
 	</body>
 </html>
