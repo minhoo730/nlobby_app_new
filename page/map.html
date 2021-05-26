@@ -820,7 +820,7 @@
 					<a class="sns_btn sms_ico">
 						<span class="sns_name">메시지</span>
 					</a>					
-					<a class="sns_btn email_ico" href="#">
+					<a class="sns_btn email_ico">
 						<span class="sns_name">Email</span>
 					</a>
 					<a class="sns_btn more_ico" href="#">
@@ -897,7 +897,17 @@
 
 			function checkM(m){
 				location.href = 'sms:' +''+(m == 'ios' ? '&' : '?') + 'body='+ encodeURIComponent("엔로비 앱 테스트 문자");
-				// location.href = 'sms:' +'문자받을번호'+(m == 'ios' ? '&' : '?') + 'body='+ encodeURIComponent("문자메시지 입력");
+				//	location.href = 'sms:' +'문자받을번호'+(m == 'ios' ? '&' : '?') + 'body='+ encodeURIComponent("문자메시지 입력");
+			}
+
+			const smsEmail = document.querySelector('.email_ico');
+			smsEmail.addEventListener('click',function(){
+				emailApp(checkMobile());
+			})
+
+			function emailApp(m){
+				location.href='mailto:' + '?' +(m == 'ios' ? '&' : '?')+ 'body=' + encodeURIComponent("엔로비 앱 테스트");
+				//	location.href='mailto:' + '받는사람 메일 주소 작성 ?(물음표 반드시 있어야 함)' +(m == 'ios' ? '&' : '?')+ 'body=' + encodeURIComponent("엔로비 앱 테스트");
 			}
 
 		</script>
