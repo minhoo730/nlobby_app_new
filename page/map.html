@@ -875,6 +875,14 @@
 					navigator.share({title: title, url: url});
 				}else alert('지원하지 않는 브라우저입니다.');
 			}
+			const userAgent = navigator.userAgent.toLocaleLowerCase()
+
+			if (userAgent.search('android') > -1) {
+				this.smsUrl = `sms:?body=원하는메시지를입력해주세요`
+			} else if (userAgent.search('iphone') > -1 || uagent.search('ipad') > -1) {
+				this.smsUrl = `sms:&body=원하는메시지를입력해주세요`
+			}
+
 		</script>
 
 		<!-- 카카오톡 호출 -->
