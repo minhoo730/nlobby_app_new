@@ -849,8 +849,8 @@
 		<script>
 			// 공유 스크립트
 			// let shareButton = document.getElementsByClassName('share-button');
-			let shareDialog = document.querySelectorAll('share-dialog');
-			let closeButton = document.querySelectorAll('close-button');
+			// let shareDialog = document.querySelectorAll('share-dialog');
+			// let closeButton = document.querySelectorAll('close-button');
 			$(".share-button").click(function(){
 			if (navigator.share) { 
 			navigator.share({
@@ -861,15 +861,12 @@
 				})
 				.catch(console.error);
 				} else {
-					shareDialog.classList.add('is-open');
+					$(".share-dialog").slideDown(200);
 				}
 			});
-
 			$(".share_title .close_btn").click(function(){
 				$(".share-dialog").slideUp(200);
 			});
-
-
 			function snsShare(title, url){
 				if(navigator.share){
 					navigator.share({title: title, url: url});
