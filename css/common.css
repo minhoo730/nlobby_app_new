@@ -715,11 +715,12 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 .nlobby_modal .pupup_con{display:table-cell; vertical-align:middle;}
 .nlobby_modal .pupup_con .popup_txt{background:#fff; text-align:center; position:relative; z-index:888;}
 .nlobby_modal .pupup_con .popup_txt h4.pop_title{font-size:16px; font-weight:400; padding:20px;}
+.pop_btn{display:flex;}
 .pop_btn:after{display:block; content:''; clear:both;}
 .pop_btn button.cancel_btn{background:#f1f1f1; color:#333;}
 
 /* 공유 */
-.share-dialog .share_hidden {
+.share-dialog.share_hidden {
   display: none;
 }
 
@@ -736,13 +737,10 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
   padding-right: 30px;
 }
 
-#share_area {
+.share-dialog {
   position: absolute;
   bottom: 0%;
   left: 0%;
-}
-
-#share_area {
   z-index:999 !important;
   width: 100%;
   box-shadow: 0 8px 16px rgba(0,0,0,.15);
@@ -772,9 +770,6 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
   padding: 0;
 }
 
-.close-button svg {
-  margin-right: 0;
-}
 
 .link {
   display: flex;

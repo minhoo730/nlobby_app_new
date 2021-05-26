@@ -75,7 +75,7 @@
 						<div class="popup_txt">
 							<h4 class="pop_title">개인정보 초기화 하실경우<br>저장된 모든 데이터가 사라집니다.<br>초기화 하시겠습니까?</h4>
 							<div class="pop_btn">
-								<button class="cancel_btn btn">취소</button>
+								<button id="cancel_btn" class="cancel_btn btn">취소</button>
 								<button class="confirm_btn green_bg btn" onclick="location.href='visiting_form.html';">확인</button>
 							</div>
 						</div>
@@ -92,7 +92,7 @@
 						<div class="popup_txt">
 							<h4 class="pop_title">현재 인증된 임직원 소속회사를<br>삭제하시겠습니까?</h4>
 							<div class="pop_btn">
-								<button class="cancel_btn btn">취소</button>
+								<button id="cancel_btn" class="cancel_btn btn">취소</button>
 								<button id="delete_complet"class="confirm_btn green_bg btn">확인</button>
 							</div>
 						</div>
@@ -124,7 +124,7 @@
 					$('#reset_popup').css('display','block');
 					$('.modal_bg').css('display','block'); 
 				});
-				$('#reset_popup .cancel_btn, .modal_bg').on('click', function scrollAble(){
+				$('#cancel_btn, .modal_bg').on('click', function scrollAble(){
 					$('html, body').removeClass('hidden');
 					$('#reset_popup').css('display','none'); 
 					$('.modal_bg').css('display','none'); 
@@ -136,7 +136,7 @@
 					$('.modal_bg').css('display','block');
 				});
 
-				$('#delete_popup .cancel_btn, .modal_bg').on('click', function scrollAble(){
+				$('#cancel_btn, .modal_bg').on('click', function scrollAble(){
 					$('html, body').removeClass('hidden');
 					$('#delete_popup').css('display','none'); 
 					$('.modal_bg').css('display','none'); 

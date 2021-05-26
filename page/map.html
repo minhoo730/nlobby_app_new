@@ -19,81 +19,7 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<div id="map" class="map_main">
-				<div id="share_area">
-					<div class="share-dialog">
-						<div class="share_title">
-							<h3 class="dialog-title">엔로비 앱 공유하기</h3>
-							<button class="close-button"><a href="#close">X</a></button>
-						</div>
-						<div class="targets">
-							<a class="button">
-							<svg>
-								<use href="#facebook"></use>
-							</svg>
-							<span>Facebook</span>
-							</a>
-							
-							<a class="button">
-							<svg>
-								<use href="#twitter"></use>
-							</svg>
-							<span>Twitter</span>
-							</a>
-							
-							<a class="button">
-							<svg>
-								<use href="#linkedin"></use>
-							</svg>
-							<span>LinkedIn</span>
-							</a>
-							
-							<a class="button">
-							<svg>
-								<use href="#email"></use>
-							</svg>
-							<span>Email</span>
-							</a>
-						</div>
-						<div class="link">
-							<div class="pen-url">https://codepen.io/ayoisaiah/pen/YbNazJ</div>
-							<button class="copy-link">링크복사</button>
-						</div>
-					</div>
-				</div>
-				<script>
-					// 공유 스크립트
-					let shareButton = document.querySelector('.share-button');
-					let shareDialog = document.querySelector('.share-dialog');
-					let closeButton = document.querySelector('.close-button');
-		
-					shareButton.addEventListener('click', event => {
-					if (navigator.share) { 
-					navigator.share({
-						title: 'WebShare API Demo',
-						url: '' // 공유링크
-						}).then(() => {
-						console.log('Thanks for sharing!');
-						})
-						.catch(console.error);
-						} else {
-							shareDialog.classList.add('is-open');
-						}
-					});
-		
-					closeButton.addEventListener('click', event => {
-					shareDialog.classList.remove('is-open');
-					});
-		
-		
-					function snsShare(title, url){
-						if(navigator.share){
-							navigator.share({title: title, url: url});
-						}else alert('지원하지 않는 브라우저입니다.');
-					}
-				</script>
-		
-
+			<div id="map" class="map_main">		
 				<!-- 이용방법 -->
 				<div id="user_face">
 					<div class="face_masssge">
@@ -739,7 +665,7 @@
 										<div class="pop_btn">
 											<div class="btn_ico">
 												<button class="bookmark_ico">북마크 ICO</button>
-												<button class="share_ico share-button share-button" >공유 ICO</button>
+												<button class="share_ico share-button" >공유 ICO</button>
 											</div>
 											<div class="txt_btn">
 												<p class="reserve_btn"><a href="#">방문신청</a></p>
@@ -880,6 +806,75 @@
 				</div>
 				<div class="modal_bg"></div>
 			</div>
-		</div>
+			<div class="share-dialog">
+				<div class="share_title">
+					<h3 class="dialog-title">엔로비 앱 공유하기</h3>
+					<button class="close_btn"><a href="#close">X</a></button>
+				</div>
+				<div class="targets">
+					<a class="button">
+					<svg>
+						<use href="#facebook"></use>
+					</svg>
+					<span>Facebook</span>
+					</a>
+					
+					<a class="button">
+					<svg>
+						<use href="#twitter"></use>
+					</svg>
+					<span>Twitter</span>
+					</a>
+					
+					<a class="button">
+					<svg>
+						<use href="#linkedin"></use>
+					</svg>
+					<span>LinkedIn</span>
+					</a>
+					
+					<a class="button">
+					<svg>
+						<use href="#email"></use>
+					</svg>
+					<span>Email</span>
+					</a>
+				</div>
+				<div class="link">
+					<div class="pen-url">https://codepen.io/ayoisaiah/pen/YbNazJ</div>
+					<button class="copy-link">링크복사</button>
+				</div>
+			</div>
+		<script>
+			// 공유 스크립트
+			// let shareButton = document.getElementsByClassName('share-button');
+			let shareDialog = document.querySelectorAll('share-dialog');
+			let closeButton = document.querySelectorAll('close-button');
+			$(".share-button").click(function(){
+			if (navigator.share) { 
+			navigator.share({
+				title: 'WebShare API Demo',
+				url: '' // 공유링크
+				}).then(() => {
+				console.log('Thanks for sharing!');
+				})
+				.catch(console.error);
+				} else {
+					shareDialog.classList.add('on');
+				}
+			});
+
+			$(".share_title .close_btn").click(function(){
+			$(".share-dialog").slideUp(200);
+		});
+
+
+			function snsShare(title, url){
+				if(navigator.share){
+					navigator.share({title: title, url: url});
+				}else alert('지원하지 않는 브라우저입니다.');
+			}
+		</script>
+	</div>
 	</body>
 </html>
