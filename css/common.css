@@ -727,18 +727,17 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 }
 
 .share-dialog {
-  position: absolute;
-  display:none;
-  bottom: 0%;
-  left: 0%;
-  z-index:999 !important;
-  width: 100%;
-  box-shadow: 0 8px 16px rgba(0,0,0,.15);
-  z-index: -1;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 4px;
-  background-color: #fff;
+	position: absolute;
+	display:block;
+	bottom: 0%;
+	left: 0%;
+	z-index:999 !important;
+	width: 100%;
+	box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+	z-index: -1;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: #fff;
 }
 
 /* .targets {
