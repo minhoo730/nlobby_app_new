@@ -749,12 +749,12 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 } */
 
 .targets{display:flex; justify-content: space-around;}
-.targets .sns_btn{text-align:center; position:relative; padding-top:60px; width:100px; height:85px; margin-bottom:30px; cursor:pointer;}
-.targets .sns_btn:before{position:absolute; content:''; left:0px; top:10px; width:100%; height:40px;}
-.targets .kakao_ico:before{background:url('../img/drawable-xxxhdpi/kakao_ico.png')no-repeat center; background-size:40px;}
-.targets .line_ico:before{background:url('../img/drawable-xxxhdpi/line_ico.png')no-repeat center; background-size:40px;}
-.targets .instagram_ico:before{background:url('../img/drawable-xxxhdpi/instagram_ico.png')no-repeat center; background-size:40px;}
-.targets .email_ico:before{background:url('../img/drawable-xxxhdpi/email_ico.png')no-repeat center; background-size:40px;}
+.targets .sns_btn{text-align:center; position:relative; padding-top:60px; width:100px; height:85px; margin:20px 0; cursor:pointer;}
+.targets .sns_btn:before{position:absolute; content:''; left:0px; top:10px; width:100%; height:42px;}
+.targets .kakao_ico:before{background:url('../img/drawable-mdpi/kakao_ico.png')no-repeat center;}
+.targets .sms_ico:before{background:url('../img/drawable-mdpi/sms_ico.png')no-repeat center;}
+.targets .email_ico:before{background:url('../img/drawable-mdpi/email_ico.png')no-repeat center;}
+.targets .more_ico:before{background:url('../img/drawable-mdpi/more_ico.png')no-repeat center;}
 .targets .sns_btn .sns_name{font-size:16px;}
 .close-button {background-color: transparent; border: none; padding: 0;}
 
