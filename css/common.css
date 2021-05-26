@@ -720,21 +720,10 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 .pop_btn button.cancel_btn{background:#f1f1f1; color:#333;}
 
 /* 공유 */
-.share-dialog.share_hidden {
-  display: none;
-}
-
 .share-dialog svg {
   width: 20px;
   height: 20px;
   margin-right: 7px;
-}
-
-
-
-.copy-link {
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .share-dialog {
@@ -752,42 +741,48 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
   background-color: #fff;
 }
 
-.share-dialog.is-open {
-  display: block;
-  z-index: 2;
-}
-
-.targets {
+/* .targets {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
   margin-bottom: 20px;
+} */
+
+.targets{display:flex; justify-content: space-around;}
+.targets .sns_btn{text-align:center; position:relative; padding-top:60px; width:100px; height:85px; margin-bottom:30px;}
+.targets .sns_btn:before{position:absolute; content:''; left:0px; top:10px; width:100%; height:40px;}
+.targets .kakao_ico:before{background:url('../img/drawable-xxxhdpi/kakao_ico.png')no-repeat center; background-size:40px;}
+.targets .line_ico:before{background:url('../img/drawable-xxxhdpi/line_ico.png')no-repeat center; background-size:40px;}
+.targets .instagram_ico:before{background:url('../img/drawable-xxxhdpi/instagram_ico.png')no-repeat center; background-size:40px;}
+.targets .email_ico:before{background:url('../img/drawable-xxxhdpi/email_ico.png')no-repeat center; background-size:40px;}
+.targets .sns_btn .sns_name{font-size:16px;}
+.close-button {background-color: transparent; border: none; padding: 0;}
+
+.link:after{
+	display:block; content:''; clear:both;
 }
-
-.close-button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-}
-
-
-.link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #eee;
-}
-
 .pen-url {
   margin-right: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border:none;
+  background: #eee;
+  border-radius: 4px;
+  padding:5px;
+  width:calc(100% - 130px);
 }
 
+.copy-link {
+	padding:3px 30px;
+	float:right;
+	border: 1px solid #849c23;
+	background:#fff;
+	border-radius:3px;
+    color: #849c23;
+  }
+  
 
 
 

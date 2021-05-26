@@ -812,32 +812,20 @@
 					<button class="close_btn"><a href="#close">X</a></button>
 				</div>
 				<div class="targets">
-					<a class="button">
-					<svg>
-						<use href="#facebook"></use>
-					</svg>
-					<span>Facebook</span>
+					<a class="sns_btn kakao_ico" href="#">
+						<span class="sns_name">카카오톡</span>
 					</a>
 					
-					<a class="button">
-					<svg>
-						<use href="#twitter"></use>
-					</svg>
-					<span>Twitter</span>
+					<a class="sns_btn line_ico" href="#">
+						<span class="sns_name">LINE</span>
 					</a>
 					
-					<a class="button">
-					<svg>
-						<use href="#linkedin"></use>
-					</svg>
-					<span>LinkedIn</span>
+					<a class="sns_btn instagram_ico" href="#">
+						<span class="sns_name">인스타그램</span>
 					</a>
 					
-					<a class="button">
-					<svg>
-						<use href="#email"></use>
-					</svg>
-					<span>Email</span>
+					<a class="sns_btn email_ico" href="#">
+						<span class="sns_name">Email</span>
 					</a>
 				</div>
 				<div class="link">
@@ -848,9 +836,6 @@
 			
 		<script>
 			// 공유 스크립트
-			// let shareButton = document.getElementsByClassName('share-button');
-			// let shareDialog = document.querySelectorAll('share-dialog');
-			// let closeButton = document.querySelectorAll('close-button');
 			$(".share-button").click(function(){
 			if (navigator.share) { 
 			navigator.share({
