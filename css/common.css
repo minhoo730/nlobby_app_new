@@ -716,11 +716,10 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 .nlobby_modal .pupup_con .popup_txt{background:#fff; text-align:center; position:relative; z-index:888;}
 .nlobby_modal .pupup_con .popup_txt h4.pop_title{font-size:16px; font-weight:400; padding:20px;}
 .pop_btn:after{display:block; content:''; clear:both;}
-.pop_btn button{float:left; width:50%;}
 .pop_btn button.cancel_btn{background:#f1f1f1; color:#333;}
 
 /* 공유 */
-.share-dialog .hidden {
+.share-dialog .share_hidden {
   display: none;
 }
 
@@ -730,47 +729,23 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
   margin-right: 7px;
 }
 
-.share-dialog button, .share-dialog .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  color: #777;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-  text-decoration: none;
-  white-space: nowrap;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  cursor: pointer;
-}
 
-.share-dialog button:hover, .share-dialog .button:hover {
-  border-color: #cdd;
-}
 
-.share-button, .copy-link {
+.copy-link {
   padding-left: 30px;
   padding-right: 30px;
 }
 
-.share-button, .share-dialog {
+#share_area {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0%;
+  left: 0%;
 }
 
-.share-dialog {
-  display: none;
-  width: 95%;
-  max-width: 500px;
+#share_area {
+  display:none;
+  z-index:999 !important;
+  width: 100%;
   box-shadow: 0 8px 16px rgba(0,0,0,.15);
   z-index: -1;
   border: 1px solid #ddd;

@@ -325,4 +325,4 @@
 				$(this).parent().removeClass('focus');
 			});
 		});
-});
+	});
