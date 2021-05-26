@@ -720,7 +720,7 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 .pop_btn button.cancel_btn{background:#f1f1f1; color:#333;}
 
 /* 공유 */
-/* .share-dialog .share_hidden {
+.share-dialog.share_hidden {
   display: none;
 }
 
@@ -739,6 +739,7 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 
 .share-dialog {
   position: absolute;
+  display:none;
   bottom: 0%;
   left: 0%;
   z-index:999 !important;
@@ -785,7 +786,7 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-} */
+}
 
 
 

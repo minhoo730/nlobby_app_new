@@ -806,7 +806,6 @@
 				</div>
 				<div class="modal_bg"></div>
 			</div>
-			<!--
 			<div class="share-dialog">
 				<div class="share_title">
 					<h3 class="dialog-title">엔로비 앱 공유하기</h3>
@@ -846,24 +845,8 @@
 					<button class="copy-link">링크복사</button>
 				</div>
 			</div>
-			-->
-			<script>
-			const shareButton = document.querySelector('.share-button');
-			shareButton.addEventListener("click", async () => {
-			try {
-				await navigator.share({
-				title: "재그지그의 개발 블로그",
-				text: "디자인과 UI, UX에 관심이 많은 주니어 웹 프론트엔드 개발자입니다.",
-				url: "https://wormwlrm.github.io",
-				});
-				console.log("공유 성공");
-			} catch (e) {
-				console.log("공유 실패");
-			}
-			});
-			</script>
 			
-		<!-- <script>
+		<script>
 			// 공유 스크립트
 			// let shareButton = document.getElementsByClassName('share-button');
 			let shareDialog = document.querySelectorAll('share-dialog');
@@ -882,9 +865,9 @@
 				}
 			});
 
-			// $(".share_title .close_btn").click(function(){
-			// 	$(".share-dialog").slideUp(200);
-			// });
+			$(".share_title .close_btn").click(function(){
+				$(".share-dialog").slideUp(200);
+			});
 
 
 			function snsShare(title, url){
@@ -892,7 +875,7 @@
 					navigator.share({title: title, url: url});
 				}else alert('지원하지 않는 브라우저입니다.');
 			}
-		</script> -->
+		</script>
 	</div>
 	</body>
 </html>
