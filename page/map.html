@@ -817,7 +817,7 @@
 						<span class="sns_name">카카오톡</span>
 					</a>
 					
-					<a class="sns_btn mms_ico" href="sms:?">
+					<a class="sns_btn sms_ico" href="sms:?">
 						<span class="sns_name">메시지</span>
 					</a>					
 					<a class="sns_btn email_ico" href="#">
@@ -876,10 +876,29 @@
 				}else alert('지원하지 않는 브라우저입니다.');
 			}
 
-			const message = '테스트';
-			function chklOS(){
-				location.href = 'sms:' +(checkMobile() == 'ios' ? '&' : '?') + 'body='+ message;
+			function checkMobile(){
+				const varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
+				if ( varUA.indexOf('android') > -1) {
+					//안드로이드
+					return "android";
+				} else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
+					//IOS
+					return "ios";
+				} else {
+					//아이폰, 안드로이드 외
+					return "other";
+				}
 			}
+
+			const smsBtn = document.querySelector('.sms_ico');
+			smsBtn.addEventListener('click', function() {
+				checkM(checkMobile());
+			});
+
+			function checkM(m){
+				location.href = 'sms:' +'전화번호'+(m == 'ios' ? '&' : '?') + 'body='+ encodeURIComponent("보낼 내용");
+			}
+
 		</script>
 
 		<!-- 카카오톡 호출 -->
