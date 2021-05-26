@@ -862,11 +862,12 @@
 				.catch(console.error);
 				} else {
 					$(".share-dialog").slideDown(200);
-					$(".copy-link").click({
-						function (){
-							const urlbox = document.getElementsByClassName('pen-url');
-							urlbox.select();
-							document.execCommand( 'Copy' );
+					$(".link .copy-link").click(function() {
+						$(".link .pen-url").select();
+						const success = document.execCommand("copy");
+						$(".link .pen-url").attr("type","hidden")
+						if(success){
+							alert("링크복사");
 						}
 					})
 				}
