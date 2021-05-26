@@ -743,7 +743,6 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 }
 
 #share_area {
-  display:none;
   z-index:999 !important;
   width: 100%;
   box-shadow: 0 8px 16px rgba(0,0,0,.15);
