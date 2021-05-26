@@ -862,8 +862,17 @@
 				.catch(console.error);
 				} else {
 					$(".share-dialog").slideDown(200);
+					$(".copy-link").click({
+						function(){
+							const urlbox = document.getElementsByClassName('pen-url');
+							var urlbox = document.getElementById( 'textbox-url' );
+							urlbox.select();
+							document.execCommand( 'Copy' );
+						}
+					})
 				}
 			});
+
 			$(".share_title .close_btn").click(function(){
 				$(".share-dialog").slideUp(200);
 			});
