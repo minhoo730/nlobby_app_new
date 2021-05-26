@@ -2,8 +2,8 @@ $(document).ready(function () {
   var HOME_PATH = window.HOME_PATH || ".";
   var locationBtnHtml =
     '<p class="location_ico"><a href="#">현재위치 아이콘</a></p>';
-  // var linkBtnHtml =
-  //   '<p class="adm_ico"><a href="https://demo.nlobby.com/dash">방문관리 아이콘</a></p>';
+  var linkBtnHtml =
+    '<p class="adm_ico"><a href="https://demo.nlobby.com/dash">방문관리 아이콘</a></p>';
   var redMarker =
     '<div class="mapbridge no_mark"><div class="map_group _map_group"><div class="map_marker _marker noa"><span class="ico _icon"></span><span class="mark_txt">현재장소 정보 보기</span><span class="shd">마커</span></div></div></div>';
 

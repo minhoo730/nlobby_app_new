@@ -612,7 +612,7 @@ button.search_ico{right: 0px;z-index: 333;position:absolute;top: 0px;text-indent
 .location_ico{background:#fff url('../img/drawable-xxxhdpi/location_ico.png')center no-repeat;background-size:32px;text-indent:-9999px;width:50px;height:50px;border-radius:50px;box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);position:fixed;bottom: 100px; /*right:85px; */ right:20px;}
 .location_ico a{display:block; height:100%;}
 
-.adm_ico{background:#fff url('../img/drawable-xxxhdpi/adm_ico.png')center no-repeat;background-size:32px;text-indent:-9999px;width:50px;height:50px;border-radius:50px;box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);position:fixed;bottom: 100px;right: 20px;}
+.adm_ico{display:none; background:#fff url('../img/drawable-xxxhdpi/adm_ico.png')center no-repeat;background-size:32px;text-indent:-9999px;width:50px;height:50px;border-radius:50px;box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);position:fixed;bottom: 100px;right: 20px;}
 .adm_ico a{display:block; height:100%;}
 
 
