@@ -841,7 +841,7 @@
 					</a>
 				</div>
 				<div class="link">
-					<div class="pen-url">https://minhoo730.github.io/nlobby_app_new/page/map.html</div>
+					<input type="text" class="pen-url" value="https://minhoo730.github.io/nlobby_app_new/page/map.html"/>
 					<button class="copy-link">링크복사</button>
 				</div>
 			</div>
@@ -865,7 +865,7 @@
 					$(".link .copy-link").click(function() {
 						$(".link .pen-url").select();
 						const success = document.execCommand("copy");
-						$(".link .pen-url").attr("type","hidden")
+						$(".link .pen-url").attr("type","text")
 						if(success){
 							alert("링크복사");
 						}
