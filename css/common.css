@@ -728,7 +728,7 @@ span.summary{font-size:13px; font-weight:300; color:#a9a9a9;}
 
 .share-dialog {
 	position: absolute;
-	display:none;
+	display:block;
 	bottom: 0%;
 	left: 0%;
 	z-index:999 !important;

@@ -817,16 +817,14 @@
 						<span class="sns_name">카카오톡</span>
 					</a>
 					
-					<a class="sns_btn line_ico" href="#">
-						<span class="sns_name">LINE</span>
-					</a>
-					
-					<a class="sns_btn instagram_ico" href="#">
-						<span class="sns_name">인스타그램</span>
-					</a>
-					
+					<a class="sns_btn mms_ico" href="sms:?">
+						<span class="sns_name">메시지</span>
+					</a>					
 					<a class="sns_btn email_ico" href="#">
 						<span class="sns_name">Email</span>
+					</a>
+					<a class="sns_btn more_ico" href="#">
+						<span class="sns_name">더 보기</span>
 					</a>
 				</div>
 				<div class="link">
@@ -837,26 +835,37 @@
 			
 		<script>
 			// 공유 스크립트
+			// $(".share-button").click(function(){
+			// if (navigator.share) { 
+			// navigator.share({
+			// 	title: 'WebShare API Demo',
+			// 	url: '' // 공유링크
+			// 	}).then(() => {
+			// 	console.log('Thanks for sharing!');
+			// 	})
+			// 	.catch(console.error);
+			// 	} else {
+			// 		$(".share-dialog").slideDown(200);
+			// 		$(".link .copy-link").click(function() {
+			// 			$(".link .pen-url").select();
+			// 			const success = document.execCommand("copy");
+			// 			$(".link .pen-url").attr("type","text")
+			// 			if(success){
+			// 				alert("링크가 복사되었습니다.\n원하시는 곳에서 붙여넣기 하세요.");
+			// 			}
+			// 		})
+			// 	}
+			// });
 			$(".share-button").click(function(){
-			if (navigator.share) { 
-			navigator.share({
-				title: 'WebShare API Demo',
-				url: '' // 공유링크
-				}).then(() => {
-				console.log('Thanks for sharing!');
+				$(".share-dialog").slideDown(200);
+				$(".link .copy-link").click(function() {
+					$(".link .pen-url").select();
+					const success = document.execCommand("copy");
+					$(".link .pen-url").attr("type","text")
+					if(success){
+						alert("링크가 복사되었습니다.\n원하시는 곳에서 붙여넣기 하세요.");
+					}
 				})
-				.catch(console.error);
-				} else {
-					$(".share-dialog").slideDown(200);
-					$(".link .copy-link").click(function() {
-						$(".link .pen-url").select();
-						const success = document.execCommand("copy");
-						$(".link .pen-url").attr("type","text")
-						if(success){
-							alert("링크가 복사되었습니다.\n원하시는 곳에서 붙여넣기 하세요.");
-						}
-					})
-				}
 			});
 			$(".share_title .close_btn").click(function(){
 				$(".share-dialog").slideUp(200);
@@ -866,7 +875,10 @@
 					navigator.share({title: title, url: url});
 				}else alert('지원하지 않는 브라우저입니다.');
 			}
+			const userAgent = navigator.userAgent.toLocaleLowerCase()
 		</script>
+
+		<!-- 카카오톡 호출 -->
 		<script type="text/javascript">
 			function sendLinkCustom() {
 				Kakao.init("25e67e36915b01ec3490b2f93c45dfc5");
