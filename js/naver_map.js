@@ -164,6 +164,7 @@ $(document).ready(function () {
     );
     map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
     map.setZoom(16); // 지도의 줌 레벨을 변경합니다.
+    
     const myLocation = new naver.maps.Marker({
       position: location,
       map: map,
@@ -227,7 +228,7 @@ $(document).ready(function () {
     });
     customControl2.setMap(map);
 
-    // 엔로비 제외 고객사
+    // 현재장소 버튼(빨간색)
     const customControl3 = new naver.maps.CustomControl(redMarker, {
       position: naver.maps.Position.RIGHT_CENTER,
     });
@@ -247,6 +248,7 @@ $(document).ready(function () {
     );
   });
 
+  // 엔로비 고객사
   const greenMarker = new naver.maps.Marker({
     position: new naver.maps.LatLng(35.174878887415396, 129.12445041545166),
     map: map,

@@ -44,11 +44,13 @@
 		});
 
 
+		// 탭 닫기 버튼 클릭
 		$(".tab_con .list_close").click(function(){
 			$(".bot_list").slideUp();
 			$(".bot_bg ul li").removeClass("on");
 		});
 
+		// 알람버튼 클릭 시 팝업 노출
 		$(".t_alarm_btn").click(function(){
 			$(".alarm_area").slideDown(300);
 		});
@@ -57,6 +59,7 @@
 			$(".alarm_area").slideUp(300);
 		});
 
+		// 엔로비 고객사 마크 아이콘
 		$(".green_mark").click(function(){
 			$(".green_mark, .green_company").addClass("on");
 			$(".gray_mark, .gray_company").removeClass("on");
@@ -74,7 +77,7 @@
 			$(".green_company").slideUp(200);
 		});
 
-
+		// 엔로비 비고객사 마크 아이콘
 		$(".gray_mark").click(function(){
 			$(".gray_mark, .gray_company").addClass("on");
 			$(".gray_nlobby, .gray_company").removeClass("on");
@@ -92,6 +95,7 @@
 			$(".gray_company").slideUp(200);
 		});
 
+		// 빨간색 마크
 		$(".no_mark").click(function(){
 			$(".mapbridge").removeClass("on");
 			$(".nodata_com").slideDown(200);
