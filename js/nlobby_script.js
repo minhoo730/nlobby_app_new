@@ -23,7 +23,7 @@
 		$('.modal_bg, .close_btn').on('click', function(){
 			$('.modal_bg').fadeOut(200); 
 			$('.left_area').animate({
-				left: '-' + 260 + 'px'
+				left: '-' + 270 + 'px'
 			},200);
 		}); 
 
@@ -169,8 +169,6 @@
 			$(".result_top").css("display","none");
 			$(".flow_search .place_form").focus();
 		});
-
-
 
 		// 검색 결과 스크립트 
 		$(".search_input .close_btn").click(function(){
