@@ -6,16 +6,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0,maximum-scale=10,user-scalable=yes">
 		<title>엔로비 앱</title>
 		<link rel="stylesheet" type="text/css" href="../css/font.css">
+		<link rel="stylesheet" type="text/css" href="../css/owl.carousel.css">
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 		<link rel="stylesheet" type="text/css" href="../css/common.css">
-
+		
 		<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script type="text/javascript" src="../js/naver_map.js"></script>
 		<script type="text/javascript" src="../js/nlobby_script.js"></script>
+		<script type="text/javascript" src="../js/owl.carousel.js"></script>
 		<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e4d4dde1f5&submodules=geocoder"></script>
 		<script type="text/javascript" src="../js/accidentdeath.js"></script>
 		<script type="text/javascript" src="../js/MarkerClustering.js"></script>
+		<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -88,7 +91,7 @@
 						<div class="popup_txt">
 							<h4 class="pop_title">현재 작성된 내용이 사라집니다.<br>취소하시겠습니까?</h4>
 							<div class="pop_btn">
-								<button class="cancel_btn btn">취소</button>
+								<button class="cancel_btn btn" id="cancel_btn">취소</button>
 								<button id="delete_complet"class="confirm_btn green_bg btn" onclick="location.href='map.html'">확인</button>
 							</div>
 						</div>
@@ -152,7 +155,7 @@
 					$('#back_popup').css('display','block'); 
 					$('#back_popup .modal_bg').css('display','block'); 
 				});
-				$('#back_popup_btn .cancel_btn, #back_popup .modal_bg').on('click', function scrollAble(){
+				$('#cancel_btn, #back_popup .modal_bg').on('click', function scrollAble(){
 					$('html, body').removeClass('hidden');
 					$('#back_popup').css('display','none'); 
 					$('#back_popup .modal_bg').css('display','none'); 

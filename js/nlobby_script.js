@@ -98,8 +98,8 @@
 			$(".green_company").slideUp(200);
 			$(".gray_company").slideUp(200);
 		});
-		$(".nodata_com .close_btn").click(function(){
-			$(".nodata_com").slideUp(200);
+		$("#nodata_com .close_btn").click(function(){
+			$("#nodata_com").slideUp(200);
 		});
 
 		$(".green_nlobby").click(function(){
@@ -283,21 +283,6 @@
 				$('#counter').html("<b>"+1000+"</b> / 1000");
 			} else if (content.length == 0){ // 글자수가 0일 경우
 				$('#counter').html(""+0+" / 1000");
-			}
-		});
-
-		// 업로드 이미지 정렬
-		$('.upload_img').owlCarousel({
-			loop:false,
-			autoplay:false,
-			margin:10,
-			nav:false,
-			dots:false,
-			responsiveClass:true,
-			responsive:{
-				0:{
-					items:4
-				}
 			}
 		});
 
