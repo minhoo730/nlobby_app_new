@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41.453" height="41.457" viewBox="0 0 41.453 41.457">
+  <g id="line_ico" transform="translate(-316.589 -83.557)">
+    <path id="패스_146" data-name="패스 146" d="M370.186,83.927l-26.4-.037a7.509,7.509,0,0,0-7.519,7.5l-.037,26.4a7.509,7.509,0,0,0,7.5,7.52l26.4.037a7.508,7.508,0,0,0,7.518-7.5l.037-26.4A7.508,7.508,0,0,0,370.186,83.927Z" transform="translate(-19.641 -0.333)" fill="#39bda2"/>
+    <g id="그룹_63" data-name="그룹 63" transform="translate(201.756 -610.444)">
+      <path id="패스_152" data-name="패스 152" d="M456.186,70.306a10.119,10.119,0,0,0-15.068,13.488.655.655,0,0,1,.094.684l-1.368,3.089,5.082-.811a.659.659,0,0,1,.341.036,10.106,10.106,0,0,0,9.545-1.2.586.586,0,0,1,.047-.035,10.243,10.243,0,0,0,1.112-.936,10.123,10.123,0,0,0,.215-14.314Z" transform="translate(-312.951 636.788)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="선_41" data-name="선 41" x2="7.334" transform="translate(132.333 711.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="선_42" data-name="선 42" x2="5.167" transform="translate(132.333 714.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="선_43" data-name="선 43" x2="7.334" transform="translate(132.333 717.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
