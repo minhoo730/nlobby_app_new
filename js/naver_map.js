@@ -109,21 +109,6 @@ $(document).ready(function () {
         if (item.englishAddress) {
           htmlAddresses.push("[영문명 주소] " + item.englishAddress);
         }
-        nodataAddress.innerHTML =
-          '<button class="close_btn">X</button>' +
-          '<div class="list_title" id="list_title">' +
-            '<h4 class="place_name">바뀜 부산본사</h4>' +
-              '<p class="place_address">' +
-                htmlAddresses +
-              "</p>" +
-            '<div class="place_plus">' +
-              '<p class="place_add_btn">' +
-                '<a href="place_add.html">방문장소 만들기</a>' +
-              "</p>" +
-            "</div>" +
-          "</div>";
-        map.setCenter(point);
-        infoWindow.open(map, point);
       }
     );
   }
@@ -233,6 +218,8 @@ $(document).ready(function () {
       position: naver.maps.Position.RIGHT_CENTER,
     });
     customControl3.setMap(map);
+
+    // 버튼을 클릭했을 때 나타나는 팝업 동작
     const domEventListener3 = naver.maps.Event.addDOMListener(
       customControl3.getElement(),
       "click",
@@ -248,7 +235,7 @@ $(document).ready(function () {
     );
   });
 
-  // 엔로비 고객사
+  // 엔로비 고객사 다수
   const greenMarker = new naver.maps.Marker({
     position: new naver.maps.LatLng(35.174878887415396, 129.12445041545166),
     map: map,
@@ -269,6 +256,7 @@ $(document).ready(function () {
     draggable: false,
   });
 
+  //  비고객사 다수
   const grayMarker = new naver.maps.Marker({
     position: new naver.maps.LatLng(35.174573619601816, 129.12826814012158),
     map: map,
@@ -289,6 +277,7 @@ $(document).ready(function () {
     draggable: false,
   });
 
+    // 엔로비 단일 고객사
   const greenNlobby = new naver.maps.Marker({
     position: new naver.maps.LatLng(35.17292381160535, 129.12771024920434),
     map: map,
@@ -309,6 +298,7 @@ $(document).ready(function () {
     draggable: false,
   });
 
+  // 엔로비 단일 비 고객사 
   const grayNlobby = new naver.maps.Marker({
     position: new naver.maps.LatLng(35.177650669265795, 129.12439503884184),
     map: map,
@@ -318,7 +308,7 @@ $(document).ready(function () {
           '<div class="map_group _map_group">',
             '<div class="map_marker _marker"> ',
               '<span class="ico _icon"></span>',
-              '<span class="shd">+3</span>',
+              '<span class="shd">마커</span>',
             "</div>",
           "</div>",
         "</div>",

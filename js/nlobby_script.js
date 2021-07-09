@@ -69,12 +69,14 @@
 			$(".gray_company").slideUp(200);
 			$(".nodata_com").slideUp(200);
 			$(".green_company ul li").css("display","block");
+			$(".no_mark").css("display","none");
 			$(".green_company ul li:first-child").css("display","block");
 		});
 
 		$(".green_company .close_btn").click(function(){
 			$(".green_mark, .green_company").removeClass("on");
 			$(".green_company").slideUp(200);
+			$(".no_mark").css("display","");
 		});
 
 		// 엔로비 비고객사 마크 아이콘
@@ -88,11 +90,12 @@
 			$(".nodata_com").slideUp(200);
 			$(".gray_company ul li").css("display","block");
 			$(".gray_company ul li:first-child").css("display","block");
-
+			$(".no_mark").css("display","none");
 		});
 		$(".gray_company .close_btn").click(function(){
 			$(".gray_mark, .gray_company").removeClass("on");
 			$(".gray_company").slideUp(200);
+			$(".no_mark").css("display","");
 		});
 
 		// 빨간색 마크
@@ -111,15 +114,19 @@
 			$(".gray_nlobby, .gray_company").removeClass("on");
 			$(".gray_mark, .gray_company").removeClass("on");
 			$(".gray_nlobby, .gray_company").removeClass("on");
+			$(".green_mark").removeClass("on");
 			$(".green_company ul li").css("display","none");
 			$(".green_company ul li:first-child").css("display","block");
 			$(".green_company").slideDown(200);
 			$(".nodata_com").slideUp(200);
 			$(".gray_company").slideUp(200);
+			$(".no_mark").css("display","none");
+
 		})
 		$(".green_company .close_btn").click(function(){
 			$(".green_nlobby, .green_company").removeClass("on");
 			$(".green_company").slideUp(200);
+			$(".no_mark").css("display","");
 		});
 
 		$(".gray_nlobby").click(function(){
@@ -132,17 +139,22 @@
 			$(".gray_company").slideDown(200);
 			$(".nodata_com").slideUp(200);
 			$(".green_company").slideUp(200);
+			$(".no_mark").css("display","none");
 		});
 
 		$(".gray_company .close_btn").click(function(){
 			$(".gray_nlobby, .gray_company").removeClass("on");
 			$(".gray_company").slideUp(200);
+			$(".no_mark").css("display","");
 		});
 
 		$(".result_tooltip").on("click",function(){
 			$(".result_tooltip").css("display","none");
 			$(".flow_result").css("display","none");
 			$(".gray_nlobby").css("display","block");
+			$(".green_nlobby").css("display","block")
+			$(".green_mark").css("display","block");
+			$(".gray_mark").css("display","block")
 			$(".gray_nlobby, .gray_company").addClass("on");
 			$(".search_input").slideUp(200);
 			$(".gray_company").slideDown(200);
@@ -231,7 +243,7 @@
 		});
 
 
-		$(function() {	//화면 다 뜨면 시작
+		$(function() {
 			var searchSource = ["엔로비", "GS칼텍스", "GS건설", "나이키", "풍산그룹","HSBC빌딩","(주)에이치시티","머크","(주)제이티","울산항만공사","여수항만공사","한국전자기술연구원" ]; // 배열 형태로 
 			$("#searchbox").autocomplete({  //오토 컴플릿트 시작
 				source : searchSource,	// source 는 자동 완성 대상
@@ -253,7 +265,7 @@
 					console.log(event);
 				}
 			}).autocomplete( "instance" )._renderItem = function( ul, item ) {
-			//요 부분이 UI를 마음대로 변경하는 부분
+			// UI를 마음대로 변경하는 부분
 				return $( "<li class='search_list'>" )    //기본 tag가 li로 되어 있음 
 				.append( "<div>" + item.label + "</div>" )
 				//여기에다가 원하는 모양의 HTML을 만들면 UI가 원하는 모양으로 변함.
